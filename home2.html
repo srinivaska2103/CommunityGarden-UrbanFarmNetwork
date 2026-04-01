@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="rootElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>GreenRoot | Community Garden & Urban Farm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .transition-all { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-all">
+
+    <nav class="sticky top-0 z-50 bg-white dark:bg-darkCard shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <div class="flex-shrink-0 flex items-center">
+    <a href="index.html" class="flex items-center group">
+        <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+        </div>
+        <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+    </a>
+</div>
+
+              <div class="hidden lg:flex items-center lg:space-x-2 xl:space-x-4">
+    <div class="flex lg:space-x-1 xl:space-x-4 items-center" id="desktop-nav">
+        <a href="index.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Home</a>
+        <a href="home2.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Home2</a>
+        <a href="about.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">About</a>
+        <!-- <a href="book.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Book Now</a> -->
+        <a href="service.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Services</a>
+        <a href="contact.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Contact</a>
+    </div>
+
+    <div class="relative group">
+        <button class="flex items-center hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium">
+            Dashboard <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+        </button>
+        <div class="absolute hidden group-hover:block w-48 bg-white dark:bg-darkCard border dark:border-gray-700 shadow-xl mt-0 rounded-md z-50">
+            <a href="user.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Profile</a>
+            <!-- <a href="plots.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">My Plots</a> -->
+            <!-- <a href="settings.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Settings</a> -->
+        </div>
+    </div>
+<a href="login.html">
+<button class="bg-mustard text-white lg:px-4 xl:px-6 lg:py-1.5 xl:py-2 rounded-full hover:bg-opacity-90 font-bold lg:text-sm xl:text-base transition-all whitespace-nowrap">
+        Register
+    </button>
+</a>
+    
+    
+    <div class="flex items-center lg:space-x-1 xl:space-x-2 border-l lg:pl-2 xl:pl-4 dark:border-gray-700">
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i id="themeIcon" class="fas fa-moon lg:text-sm xl:text-base"></i>
+        </button>
+        <button onclick="toggleDirection()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 lg:text-[10px] xl:text-xs font-bold whitespace-nowrap">
+            LTR/RTL
+        </button>
+    </div>
+</div>
+
+                <div class="lg:hidden flex items-center space-x-3">
+                    <button onclick="toggleTheme()" class="p-2 text-xl"><i id="themeIconMobile" class="fas fa-moon"></i></button>
+                    <button onclick="toggleMobileMenu()" class="text-3xl text-mustard">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="fixed inset-0 bg-white dark:bg-darkBg z-[60] transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-mustard text-2xl font-bold">GreenRoot</span>
+                    <button onclick="toggleMobileMenu()" class="text-2xl text-gray-500">✕</button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                   <a href="index.html" class="nav-link text-xl font-semibold border-b pb-2">Home</a>
+<a href="home2.html" class="nav-link text-xl font-semibold border-b pb-2">Home2</a>
+<a href="about.html" class="nav-link text-xl font-semibold border-b pb-2">About</a>
+<!-- <a href="book.html" class="nav-link text-xl font-semibold border-b pb-2">Book Now</a> -->
+<a href="service.html" class="nav-link text-xl font-semibold border-b pb-2">Services</a>
+<a href="contact.html" class="nav-link text-xl font-semibold border-b pb-2">Contact</a>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+    // Get current filename (e.g., 'about.html')
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "index.html"; 
+
+    // Select all links with the 'nav-link' class
+    const allLinks = document.querySelectorAll('.nav-link');
+
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+
+        if (page === href) {
+            // ACTIVE STATE
+            link.classList.add('text-mustard');
+            
+            // For Desktop: Add the bottom border if it's a desktop link
+            if (link.classList.contains('px-3')) {
+                link.classList.add('border-mustard');
+                link.classList.remove('border-transparent');
+            } 
+            // For Mobile: Add a thicker border or different color if desired
+            else {
+                link.classList.add('border-mustard');
+            }
+        } else {
+            // INACTIVE STATE
+            // Reset Desktop borders
+            if (link.classList.contains('px-3')) {
+                link.classList.remove('text-mustard', 'border-mustard');
+                link.classList.add('border-transparent');
+            } 
+            // Reset Mobile borders
+            else {
+                link.classList.remove('text-mustard', 'border-mustard');
+            }
+        }
+    });
+});
+                    </script>
+                    
+                    <div class="py-2">
+                        
+                       <div class="py-2">
+    <button onclick="toggleMobileDropdown()" class="flex items-center justify-between w-full text-mustard font-bold mb-2 outline-none">
+        <span>User Dashboard</span>
+        <i id="dash-arrow" class="fas fa-chevron-down transition-transform duration-300"></i>
+    </button>
+    
+    <div id="mobile-dashboard-menu" class="hidden pl-4 space-y-3 flex flex-col mt-2 border-l-2 border-mustard/30">
+        <a href="user.html" class="nav-link text-lg hover:text-mustard transition-colors">Profile</a>
+        
+    </div>
+</div>
+<script>
+    function toggleMobileDropdown() {
+    const menu = document.getElementById('mobile-dashboard-menu');
+    const arrow = document.getElementById('dash-arrow');
+    
+    // Toggle visibility
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        arrow.classList.add('rotate-180');
+    } else {
+        menu.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
+    }
+}
+</script>
+                    </div>
+                    <a href="login.html">
+                    <button class="bg-mustard text-white py-3 rounded-lg font-bold">Register</button>
+
+                    </a>
+                    <button onclick="toggleDirection()" class="border-2 border-mustard text-mustard py-3 rounded-lg font-bold">Toggle LTR/RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+<section class="relative min-h-[80vh] flex items-center bg-[#FBF7EE] dark:bg-darkBg overflow-hidden transition-colors duration-500">
+    
+    <div class="absolute top-0 left-0 w-64 h-64 bg-mustard/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            <div class="text-center lg:text-left z-10 order-2 lg:order-1">
+                <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-mustard/10 text-mustard font-bold text-xs uppercase tracking-widest animate-fade-in-up">
+                    Sustainable Urban Living
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl xl:text-7xl font-black text-gray-900 dark:text-white leading-tight mb-6">
+                    From Concrete to <br>
+                    <span class="text-mustard">Cultivation</span>
+                </h1>
+                
+                <p class="text-gray-500 dark:text-gray-400 text-base md:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed">
+                    Transform unused urban spaces into thriving, productive gardens. Join a network of growers reclaiming the city, one plot at a time.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="regeister.html" class="w-full sm:w-auto px-10 py-4 bg-mustard text-white rounded-2xl font-black text-lg hover:bg-black transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-mustard/20">
+                        Start Growing
+                    </a>
+                    <a href="service.html" class="w-full sm:w-auto px-10 py-4 border-2 border-mustard text-mustard rounded-2xl font-black text-lg hover:bg-mustard hover:text-white transition-all transform active:scale-95">
+                        Explore Gardens
+                    </a>
+                </div>
+
+                <div class="mt-12 flex items-center justify-center lg:justify-start space-x-4">
+                    <div class="flex -space-x-3">
+                        <img class="w-10 h-10 rounded-full border-2 border-white dark:border-darkBg" src="assets/h2t1" alt="User">
+                        <img class="w-10 h-10 rounded-full border-2 border-white dark:border-darkBg" src="assets/h2t2" alt="User">
+                        <img class="w-10 h-10 rounded-full border-2 border-white dark:border-darkBg" src="assets/h2t3" alt="User">
+                    </div>
+                    <p class="text-sm font-medium text-gray-600 dark:text-gray-400">
+                        <span class="text-gray-900 dark:text-white font-bold">1.2k+</span> people growing
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative order-1 lg:order-2 flex justify-center items-center h-[400px] md:h-[600px]">
+                <div class="absolute w-[70%] h-[80%] rounded-[3rem] overflow-hidden shadow-2xl z-10 rotate-3 hover:rotate-0 transition-transform duration-700">
+                    <img src="assets/indexhero" class="w-full h-full object-cover" alt="Garden Scene">
+                </div>
+                
+                <div class="absolute top-0 right-0 w-[45%] h-[40%] rounded-[2rem] overflow-hidden shadow-xl z-20 -translate-y-4 translate-x-4 animate-float">
+                    <img src="assets/h2hero1" class="w-full h-full object-cover" alt="Growing Plant">
+                </div>
+
+                <div class="absolute bottom-4 left-0 w-[40%] h-[35%] rounded-[2rem] overflow-hidden shadow-xl z-20 -translate-x-4 translate-y-4 animate-float-delayed">
+                    <img src="assets/h2hero2" class="w-full h-full object-cover" alt="Harvest">
+                </div>
+
+                <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-mustard/20 rounded-full blur-2xl -z-0"></div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom Animations for Modern Look */
+    @keyframes float {
+        0%, 100% { transform: translateY(-4px) translateX(4px); }
+        50% { transform: translateY(10px) translateX(10px); }
+    }
+    @keyframes float-delayed {
+        0%, 100% { transform: translateY(4px) translateX(-4px); }
+        50% { transform: translateY(-10px) translateX(-10px); }
+    }
+    .animate-float {
+        animation: float 6s infinite ease-in-out;
+    }
+    .animate-float-delayed {
+        animation: float-delayed 7s infinite ease-in-out;
+    }
+    @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s ease-out forwards;
+    }
+</style>
+<section class="py-20 bg-[#F2EDE4] dark:bg-neutral-900 transition-colors duration-500 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div class="text-left">
+                <h2 class="text-mustard font-bold uppercase tracking-widest text-xs mb-2">The Benefits</h2>
+                <h3 class="text-4xl font-black text-gray-900 dark:text-white">Why Urban Farming?</h3>
+            </div>
+            <div class="flex items-center space-x-2 text-gray-400 md:hidden">
+                <span class="text-[10px] font-bold uppercase">Swipe</span>
+                <i class="fas fa-arrow-right animate-pulse"></i>
+            </div>
+        </div>
+
+        <div class="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto md:overflow-x-visible pb-8 md:pb-0 scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0" id="why-farming-scroll">
+
+            <div class="flex-shrink-0 w-[280px] md:w-full bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-soft hover:shadow-2xl border border-white/50 dark:border-neutral-800 transition-all duration-500 transform hover:-translate-y-4 group">
+                <div class="w-20 h-20 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <img src="assets/Reduce Food Cost" alt="Reduce Cost" class="w-full h-full object-cover">
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Reduce Food Cost</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Cut your monthly grocery bills by harvesting your own seasonal produce right in the city.
+                </p>
+            </div>
+
+            <div class="flex-shrink-0 w-[280px] md:w-full bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-soft hover:shadow-2xl border border-white/50 dark:border-neutral-800 transition-all duration-500 transform hover:-translate-y-4 group">
+                <div class="w-20 h-20 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <img src="assets/Build Community" alt="Build Community" class="w-full h-full object-cover">
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Build Community</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Connect with neighbors, share gardening tips, and foster a sense of belonging in your local area.
+                </p>
+            </div>
+
+            <div class="flex-shrink-0 w-[280px] md:w-full bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-soft hover:shadow-2xl border border-white/50 dark:border-neutral-800 transition-all duration-500 transform hover:-translate-y-4 group">
+                <div class="w-20 h-20 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <img src="assets/eatfresh" alt="Eat Fresh" class="w-full h-full object-cover">
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Eat Fresh</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Enjoy organic vegetables harvested minutes before they reach your plate—zero transport needed.
+                </p>
+            </div>
+
+            <div class="flex-shrink-0 w-[280px] md:w-full bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-soft hover:shadow-2xl border border-white/50 dark:border-neutral-800 transition-all duration-500 transform hover:-translate-y-4 group">
+                <div class="w-20 h-20 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl overflow-hidden mb-6 group-hover:scale-110 transition-transform shadow-inner">
+                    <img src="assets/Sustainability" alt="Sustainability" class="w-full h-full object-cover">
+                </div>
+                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Sustainable Living</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                    Reduce your carbon footprint and support local biodiversity by turning concrete into green zones.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    
+    .shadow-soft {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    }
+</style>
+<section class="py-20 bg-white dark:bg-darkBg transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+            <div class="max-w-xl">
+                <h2 class="text-mustard font-bold uppercase tracking-widest text-xs mb-3">Live Network</h2>
+                <h3 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">Find Gardens <span class="text-mustard">Near You</span></h3>
+                <p class="mt-4 text-gray-500 dark:text-gray-400">Hover over the map pins to explore active community plots and available growing spaces in your neighborhood.</p>
+            </div>
+            <div class="flex space-x-3">
+                <button class="px-6 py-3 rounded-2xl bg-[#FBF7EE] dark:bg-darkCard text-sm font-bold text-gray-700 dark:text-gray-300 border border-transparent hover:border-mustard transition-all">
+                    <i class="fas fa-filter mr-2"></i> Filter
+                </button>
+                <button class="px-6 py-3 rounded-2xl bg-mustard text-white text-sm font-bold shadow-lg shadow-mustard/20 hover:bg-black transition-all">
+                    View All List
+                </button>
+            </div>
+        </div>
+
+        <div class="relative w-full h-[500px] md:h-[650px] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-[#FBF7EE] dark:border-darkCard group">
+            
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125064.630045479!2d78.077242171582!3d11.603386617834515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1ccf52cba0b%3A0xee99890070683cdd!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1711200000000!5m2!1sen!2sin" 
+                class="absolute inset-0 w-full h-full grayscale dark:invert dark:opacity-80 transition-all duration-700 group-hover:grayscale-0" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+
+            <div id="garden-preview" class="absolute top-10 right-10 w-80 bg-white dark:bg-darkCard rounded-[2rem] p-5 shadow-2xl border border-gray-100 dark:border-neutral-800 transition-all duration-500 transform translate-x-[120%] lg:group-hover:translate-x-0 hidden lg:block">
+                <div class="relative h-40 rounded-2xl overflow-hidden mb-4">
+                    <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=400" class="w-full h-full object-cover" alt="Garden Preview">
+                    <span class="absolute top-3 right-3 px-3 py-1 bg-mustard text-white text-[10px] font-black uppercase rounded-full">3 Plots Left</span>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-1">Salem Central Garden</h4>
+                <p class="text-xs text-gray-500 mb-4"><i class="fas fa-map-marker-alt text-mustard mr-1"></i> Fairlands, Salem</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-mustard font-black">₹150 <small class="text-gray-400 font-normal">/mo</small></span>
+                    <a href="#" class="px-4 py-2 bg-gray-900 text-white rounded-xl text-xs font-bold hover:bg-mustard transition-colors">Book Now</a>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 w-full p-4 lg:hidden">
+                <div class="bg-white/90 backdrop-blur-md dark:bg-darkCard/90 p-4 rounded-2xl shadow-xl flex items-center justify-between">
+                    <div>
+                        <p class="text-[10px] font-bold text-mustard uppercase">Featured Space</p>
+                        <p class="font-bold text-gray-900 dark:text-white">Central Salem Plot</p>
+                    </div>
+                    <button class="bg-mustard text-white px-4 py-2 rounded-xl text-xs font-bold">Details</button>
+                </div>
+            </div>
+
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 pointer-events-none">
+                <div class="relative flex items-center justify-center">
+                    <div class="absolute w-12 h-12 bg-mustard/30 rounded-full animate-ping"></div>
+                    <div class="relative w-6 h-6 bg-mustard border-4 border-white rounded-full shadow-lg"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Map Filter Overlays */
+    .grayscale {
+        filter: grayscale(100%);
+    }
+    .group:hover .grayscale {
+        filter: grayscale(0%);
+    }
+    
+    /* Dark Mode Map Inversion logic */
+    .dark .dark\:invert {
+        filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+    }
+</style>
+<section class="py-20 bg-[#FBF7EE] dark:bg-darkBg transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-mustard font-bold uppercase tracking-widest text-xs mb-3">Our Collective Impact</h2>
+            <h3 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">Growing Change, <span class="text-mustard">Literally.</span></h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            
+            <div class="bg-white dark:bg-darkCard p-8 rounded-[3rem] shadow-soft hover:shadow-xl transition-all text-center group">
+                <div class="relative w-32 h-32 mx-auto mb-6">
+                    <svg class="w-full h-full transform -rotate-90">
+                        <circle cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8" fill="transparent" class="text-gray-100 dark:text-neutral-800" />
+                        <circle cx="64" cy="64" r="58" stroke="currentColor" stroke-width="8" fill="transparent" stroke-dasharray="364.4" stroke-dashoffset="91.1" class="text-mustard transition-all duration-1000 ease-out" />
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-carrot text-2xl text-mustard group-hover:scale-125 transition-transform"></i>
+                    </div>
+                </div>
+                <div class="text-4xl font-black text-gray-900 dark:text-white mb-1">
+                    <span class="counter" data-target="850">0</span>+
+                </div>
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Kg Food Grown</p>
+                <p class="mt-4 text-sm text-gray-500">75% of our annual goal reached</p>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard p-8 rounded-[3rem] shadow-soft hover:shadow-xl transition-all group">
+                <div class="w-16 h-16 bg-mustard/10 rounded-2xl flex items-center justify-center text-2xl text-mustard mb-6">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <h4 class="text-xl font-black text-gray-900 dark:text-white mb-6">Waste Reduced</h4>
+                
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-2 uppercase">
+                            <span class="dark:text-gray-300">Composted</span>
+                            <span class="text-mustard">90%</span>
+                        </div>
+                        <div class="w-full h-3 bg-gray-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-mustard w-[90%] transition-all duration-1000 delay-300"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-2 uppercase">
+                            <span class="dark:text-gray-300">Water Saved</span>
+                            <span class="text-mustard">65%</span>
+                        </div>
+                        <div class="w-full h-3 bg-gray-100 dark:bg-neutral-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-mustard w-[65%] transition-all duration-1000 delay-500"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard p-8 rounded-[3rem] shadow-soft hover:shadow-xl transition-all text-center group flex flex-col justify-center">
+                <div class="flex -space-x-4 justify-center mb-8">
+                    <img class="w-12 h-12 rounded-full border-4 border-white dark:border-darkCard" src="assets/t1" alt="">
+                    <img class="w-12 h-12 rounded-full border-4 border-white dark:border-darkCard" src="assets/h2t2" alt="">
+                    <img class="w-12 h-12 rounded-full border-4 border-white dark:border-darkCard" src="assets/t2" alt="">
+                    <div class="w-12 h-12 rounded-full border-4 border-white dark:border-darkCard bg-mustard flex items-center justify-center text-white text-xs font-bold">+</div>
+                </div>
+                <div class="text-5xl font-black text-mustard mb-2">
+                    <span class="counter" data-target="1240">0</span>
+                </div>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-white">Active Members</h4>
+                <p class="text-sm text-gray-500 mt-2">Joining us from 12 local neighborhoods</p>
+                
+                <a href="service.html" class="mt-8 text-mustard font-bold text-sm hover:underline flex items-center justify-center">
+                    Meet the community <i class="fas fa-arrow-right ml-2 text-[10px]"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    // --- Counter Animation Logic ---
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200; // The lower the slower
+
+    const startCounters = () => {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    };
+
+    // Intersection Observer to trigger animation when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                startCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(document.querySelector('.counter').parentElement.parentElement);
+</script>
+
+<style>
+    .shadow-soft {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+    }
+</style>
+<section id="pricing" class="py-24 bg-white dark:bg-darkBg transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-mustard font-bold uppercase tracking-widest text-xs mb-3">Simple Pricing</h2>
+            <h3 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-8">Choose Your <span class="text-mustard">Growth Plan</span></h3>
+            
+            <div class="flex items-center justify-center space-x-4">
+                <span class="text-sm font-bold text-gray-500 dark:text-gray-400">Monthly</span>
+                <button onclick="toggleBilling()" id="billing-toggle" class="relative w-16 h-8 bg-gray-200 dark:bg-neutral-800 rounded-full transition-all duration-300 focus:outline-none ring-2 ring-transparent focus:ring-mustard/20">
+                    <div id="toggle-knob" class="absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 transform translate-x-0"></div>
+                </button>
+                <span class="text-sm font-bold text-gray-500 dark:text-gray-400">Yearly <span class="text-xs text-mustard bg-mustard/10 px-2 py-1 rounded-lg ml-1">Save 20%</span></span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-center">
+            
+            <div class="bg-[#FBF7EE] dark:bg-darkCard p-8 rounded-[3rem] border border-transparent hover:border-mustard/30 transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full shadow-sm hover:shadow-xl">
+                <div class="mb-8">
+                    <h4 class="text-xl font-black text-gray-900 dark:text-white mb-2">Hobbyist</h4>
+                    <p class="text-gray-500 text-sm">Perfect for beginners.</p>
+                </div>
+                <div class="mb-8">
+                    <span class="text-5xl font-black text-gray-900 dark:text-white price-value" data-monthly="499" data-yearly="399">₹499</span>
+                    <span class="text-gray-400 font-medium">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-grow text-sm">
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> 50 sq. ft Plot</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Basic Tool Access</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Community Forum</li>
+                    <li class="flex items-center text-gray-400 line-through opacity-50"><i class="fas fa-times mr-3"></i> Expert Consultation</li>
+                </ul>
+                <button class="w-full py-4 border-2 border-mustard text-mustard font-black rounded-2xl hover:bg-mustard hover:text-white transition-all transform active:scale-95">
+                    Get Started
+                </button>
+            </div>
+
+            <div class="relative bg-white dark:bg-darkCard p-10 rounded-[3rem] border-4 border-mustard transition-all duration-500 transform hover:-translate-y-4 flex flex-col h-full shadow-2xl z-10">
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-mustard text-white px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest shadow-lg">
+                    Most Popular
+                </div>
+                
+                <div class="mb-8">
+                    <h4 class="text-xl font-black text-gray-900 dark:text-white mb-2">Community Pro</h4>
+                    <p class="text-gray-500 text-sm">Our most loved plan.</p>
+                </div>
+                <div class="mb-8">
+                    <span class="text-6xl font-black text-gray-900 dark:text-white price-value" data-monthly="999" data-yearly="799">₹999</span>
+                    <span class="text-gray-400 font-medium">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-grow text-sm">
+                    <li class="flex items-center text-gray-600 dark:text-gray-400 font-bold"><i class="fas fa-check text-mustard mr-3"></i> 150 sq. ft Plot</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Advanced Tool Kit</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Monthly Workshops</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Priority Water Supply</li>
+                </ul>
+                <button class="w-full py-4 bg-mustard text-white font-black rounded-2xl hover:bg-black transition-all transform active:scale-105 shadow-lg shadow-mustard/30">
+                    Join the Pro's
+                </button>
+            </div>
+
+            <div class="bg-[#FBF7EE] dark:bg-darkCard p-8 rounded-[3rem] border border-transparent hover:border-mustard/30 transition-all duration-500 transform hover:-translate-y-2 flex flex-col h-full shadow-sm hover:shadow-xl">
+                <div class="mb-8">
+                    <h4 class="text-xl font-black text-gray-900 dark:text-white mb-2">Urban Farm</h4>
+                    <p class="text-gray-500 text-sm">For serious cultivators.</p>
+                </div>
+                <div class="mb-8">
+                    <span class="text-5xl font-black text-gray-900 dark:text-white price-value" data-monthly="1999" data-yearly="1599">₹1999</span>
+                    <span class="text-gray-400 font-medium">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-grow text-sm">
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> 400 sq. ft Commercial Plot</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Automated Irrigation</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> 1-on-1 Expert Mentor</li>
+                    <li class="flex items-center text-gray-600 dark:text-gray-400"><i class="fas fa-check text-mustard mr-3"></i> Harvest Delivery Service</li>
+                </ul>
+                <button class="w-full py-4 border-2 border-mustard text-mustard font-black rounded-2xl hover:bg-mustard hover:text-white transition-all transform active:scale-95">
+                    Contact Sales
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+    let isYearly = false;
+
+    function toggleBilling() {
+        const knob = document.getElementById('toggle-knob');
+        const prices = document.querySelectorAll('.price-value');
+        isYearly = !isYearly;
+
+        if (isYearly) {
+            knob.classList.replace('translate-x-0', 'translate-x-8');
+            prices.forEach(price => {
+                animateValue(price, parseInt(price.getAttribute('data-monthly')), parseInt(price.getAttribute('data-yearly')), 300);
+            });
+        } else {
+            knob.classList.replace('translate-x-8', 'translate-x-0');
+            prices.forEach(price => {
+                animateValue(price, parseInt(price.getAttribute('data-yearly')), parseInt(price.getAttribute('data-monthly')), 300);
+            });
+        }
+    }
+
+    // Smooth Number Animation
+    function animateValue(obj, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const currentVal = Math.floor(progress * (end - start) + start);
+            obj.innerHTML = `₹${currentVal}`;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }
+</script>
+<section class="py-20 px-6 bg-white dark:bg-darkBg transition-colors duration-500">
+    <div class="max-w-7xl mx-auto">
+        <div class="relative overflow-hidden rounded-[3rem] bg-gradient-to-br from-mustard to-[#B88A12] shadow-2xl">
+            
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-black/10 rounded-full blur-2xl"></div>
+
+            <div class="relative z-10 px-8 py-16 md:py-24 text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl mb-8 animate-float">
+                    <i class="fas fa-rocket text-white text-3xl"></i>
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                    Ready to Start Your <br class="hidden md:block"> 
+                    <span class="text-black/30">Urban Farm?</span>
+                </h2>
+                
+                <p class="text-white/90 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                    Join over 1,200+ local growers in Salem. Claim your plot today and start harvesting fresh, organic produce.
+                </p>
+
+                <form action="#" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto group">
+                    <div class="flex-grow relative">
+                        <input type="email" placeholder="Enter your email" 
+                            class="w-full px-6 py-4 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-4 focus:ring-white/20 transition-all backdrop-blur-md outline-none">
+                    </div>
+                    <a href="login.html">
+<button type="submit" 
+                        class="px-8 py-4 bg-white text-mustard font-black rounded-2xl hover:bg-black hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl whitespace-nowrap">
+                        Get Early Access
+                    </button>
+                    </a>
+                    
+                </form>
+
+                <p class="mt-6 text-white/60 text-xs font-bold uppercase tracking-widest">
+                    <i class="fas fa-check-circle mr-2"></i> Free 14-day trial for new members
+                </p>
+            </div>
+
+            <div class="hidden lg:block absolute top-10 left-10 text-white/10 text-6xl animate-spin-slow">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="hidden lg:block absolute bottom-10 right-20 text-white/10 text-7xl animate-bounce-slow">
+                <i class="fas fa-seedling"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom Animations */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+    .animate-float {
+        animation: float 4s infinite ease-in-out;
+    }
+    
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 15s infinite linear;
+    }
+
+    @keyframes bounce-slow {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
+    }
+    .animate-bounce-slow {
+        animation: bounce-slow 6s infinite ease-in-out;
+    }
+</style>
+
+     <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                  <a href="index.html" class="flex items-center group">
+        <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+        </div>
+       <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+    </a>
+                <!-- <h3 class="text-mustard text-2xl font-bold mb-6 uppercase">GreenRoot</h3> -->
+                
+                <p class="text-gray-400 mb-6">Empowering urban citizens to take back their food security and cultivate green spaces together.</p>
+                <br>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="index.html" class="hover:text-white">Home</a></li>
+                    <li><a href="home2.html" class="hover:text-white">Home2</a></li>
+                    <li><a href="book.html" class="hover:text-white">Book Now</a></li>
+                    <li><a href="service.html" class="hover:text-white">Services</a></li>
+                    <li><a href="comingsoon.html" class="hover:text-white">comingsoon</a></li>
+                    
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Support</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="about.html" class="hover:text-white">About</a></li>
+                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms</a></li>
+                    <li><a href="404.html" class="hover:text-white">404</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Newsletter</h4>
+                <p class="text-gray-400 mb-4">Get gardening tips and local events sent to your inbox.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Email" class="w-full p-3 bg-gray-800 text-white rounded-l outline-none focus:ring-1 focus:ring-mustard">
+                    <button class="bg-mustard px-4 rounded-r font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+            } else {
+                menu.classList.add('translate-x-full');
+            }
+        }
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            const iconMob = document.getElementById('themeIconMobile');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                iconMob.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                iconMob.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // LTR/RTL Toggle Logic
+        function toggleDirection() {
+            const html = document.getElementById('rootElement');
+            const currentDir = html.getAttribute('dir');
+            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('direction', newDir);
+        }
+
+        // Load Persisted Settings
+        window.onload = () => {
+            // Theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+                document.getElementById('themeIconMobile').classList.replace('fa-moon', 'fa-sun');
+            }
+            // Direction
+            if (localStorage.getItem('direction')) {
+                document.getElementById('rootElement').setAttribute('dir', localStorage.getItem('direction'));
+            }
+        };
+    </script>
+</body>
+</html>

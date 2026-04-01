@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="rootElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>Coming Soon | GreenRoot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FBF7EE] dark:bg-darkBg text-gray-900 dark:text-gray-100 min-h-screen flex flex-col transition-all duration-300">
+
+    <nav class="w-full p-4 md:p-6 flex justify-between items-center z-50">
+        <a href="index.html" class="flex items-center group">
+            <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </div>
+            <span class="text-mustard text-xl md:text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+        </a>
+
+        <div class="flex items-center space-x-2">
+            <button onclick="toggleDirection()" class="text-[9px] md:text-xs font-bold px-3 py-2 bg-white dark:bg-darkCard rounded-full shadow-sm border dark:border-neutral-800 hover:text-mustard transition-colors">
+                LTR/RTL
+            </button>
+            <button onclick="toggleTheme()" class="p-2 bg-white dark:bg-darkCard rounded-full shadow-sm border dark:border-neutral-800 text-gray-500 hover:text-mustard transition-colors">
+                <i id="themeIcon" class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-10">
+        <div class="w-full max-w-3xl text-center">
+            
+            <div class="inline-block px-4 py-1.5 rounded-full bg-mustard/10 text-mustard font-bold text-xs uppercase tracking-widest mb-6">
+                <i class="fas fa-tools mr-2"></i> Under Cultivation
+            </div>
+
+            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight">
+                Something Green is <br>
+                <span class="text-mustard">Sprouting Soon.</span>
+            </h1>
+            
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-lg mb-12 max-w-lg mx-auto leading-relaxed">
+                We're busy preparing the soil for our new community features. Join the waitlist to get notified the moment we launch.
+            </p>
+
+            <div class="grid grid-cols-4 gap-2 md:gap-6 max-w-xl mx-auto mb-12">
+                <div class="bg-white dark:bg-darkCard p-3 md:p-6 rounded-2xl shadow-soft border dark:border-neutral-800">
+                    <span id="days" class="text-2xl md:text-4xl font-black text-mustard">00</span>
+                    <p class="text-[10px] md:text-xs uppercase font-bold text-gray-400 mt-1">Days</p>
+                </div>
+                <div class="bg-white dark:bg-darkCard p-3 md:p-6 rounded-2xl shadow-soft border dark:border-neutral-800">
+                    <span id="hours" class="text-2xl md:text-4xl font-black text-mustard">00</span>
+                    <p class="text-[10px] md:text-xs uppercase font-bold text-gray-400 mt-1">Hrs</p>
+                </div>
+                <div class="bg-white dark:bg-darkCard p-3 md:p-6 rounded-2xl shadow-soft border dark:border-neutral-800">
+                    <span id="minutes" class="text-2xl md:text-4xl font-black text-mustard">00</span>
+                    <p class="text-[10px] md:text-xs uppercase font-bold text-gray-400 mt-1">Min</p>
+                </div>
+                <div class="bg-white dark:bg-darkCard p-3 md:p-6 rounded-2xl shadow-soft border dark:border-neutral-800">
+                    <span id="seconds" class="text-2xl md:text-4xl font-black text-mustard">00</span>
+                    <p class="text-[10px] md:text-xs uppercase font-bold text-gray-400 mt-1">Sec</p>
+                </div>
+            </div>
+
+            <form action="#" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-12">
+                <input type="email" placeholder="yourname@email.com" 
+                    class="flex-grow px-6 py-4 rounded-2xl bg-white dark:bg-darkCard border border-transparent focus:border-mustard outline-none shadow-soft transition-all text-sm">
+                <button type="submit" class="px-8 py-4 bg-mustard text-white rounded-2xl font-black hover:bg-black transition-all transform active:scale-95 shadow-lg shadow-mustard/20 whitespace-nowrap">
+                    Notify Me
+                </button>
+            </form>
+
+            <div class="flex justify-center space-x-8 text-xl text-gray-400">
+                <a href="#" class="hover:text-mustard transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-mustard transition-colors"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-mustard transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-mustard transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-8 text-center text-gray-400 text-[10px] uppercase tracking-widest font-bold">
+        Coming to a garden near you &bull; 2026
+    </footer>
+
+    <script>
+        // --- Persistence Logic ---
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        function toggleDirection() {
+            const html = document.getElementById('rootElement');
+            const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('direction', newDir);
+        }
+
+        // --- Countdown Logic ---
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 15); // Set for 15 days from now
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d < 10 ? '0' + d : d;
+            document.getElementById("hours").innerText = h < 10 ? '0' + h : h;
+            document.getElementById("minutes").innerText = m < 10 ? '0' + m : m;
+            document.getElementById("seconds").innerText = s < 10 ? '0' + s : s;
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        window.onload = () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+            }
+            if (localStorage.getItem('direction')) {
+                document.getElementById('rootElement').setAttribute('dir', localStorage.getItem('direction'));
+            }
+            updateCountdown();
+        };
+    </script>
+
+    <style>
+        .shadow-soft {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+        }
+    </style>
+</body>
+</html>

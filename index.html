@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="rootElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>GreenRoot | Community Garden & Urban Farm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .transition-all { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-all">
+
+    <nav class="sticky top-0 z-50 bg-white dark:bg-darkCard shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <div class="flex-shrink-0 flex items-center">
+    <a href="index.html" class="flex items-center group">
+        <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+        </div>
+        <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+    </a>
+</div>
+
+              <div class="hidden lg:flex items-center lg:space-x-2 xl:space-x-4">
+    <div class="flex lg:space-x-1 xl:space-x-4 items-center" id="desktop-nav">
+        <a href="index.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Home</a>
+        <a href="home2.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Home2</a>
+        <a href="about.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">About</a>
+        <!-- <a href="book.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Book Now</a> -->
+        <a href="service.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Services</a>
+        <a href="contact.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Contact</a>
+    </div>
+
+    <div class="relative group">
+        <button class="flex items-center hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium">
+            Dashboard <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+        </button>
+        <div class="absolute hidden group-hover:block w-48 bg-white dark:bg-darkCard border dark:border-gray-700 shadow-xl mt-0 rounded-md z-50">
+            <a href="user.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Profile</a>
+            <!-- <a href="plots.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">My Plots</a> -->
+            <!-- <a href="settings.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Settings</a> -->
+        </div>
+    </div>
+<a href="login.html">
+<button class="bg-mustard text-white lg:px-4 xl:px-6 lg:py-1.5 xl:py-2 rounded-full hover:bg-opacity-90 font-bold lg:text-sm xl:text-base transition-all whitespace-nowrap">
+        Register
+    </button>
+</a>
+    
+    
+    <div class="flex items-center lg:space-x-1 xl:space-x-2 border-l lg:pl-2 xl:pl-4 dark:border-gray-700">
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i id="themeIcon" class="fas fa-moon lg:text-sm xl:text-base"></i>
+        </button>
+        <button onclick="toggleDirection()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 lg:text-[10px] xl:text-xs font-bold whitespace-nowrap">
+            LTR/RTL
+        </button>
+    </div>
+</div>
+
+                <div class="lg:hidden flex items-center space-x-3">
+                    <button onclick="toggleTheme()" class="p-2 text-xl"><i id="themeIconMobile" class="fas fa-moon"></i></button>
+                    <button onclick="toggleMobileMenu()" class="text-3xl text-mustard">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="fixed inset-0 bg-white dark:bg-darkBg z-[60] transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-mustard text-2xl font-bold">GreenRoot</span>
+                    <button onclick="toggleMobileMenu()" class="text-2xl text-gray-500">✕</button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                   <a href="index.html" class="nav-link text-xl font-semibold border-b pb-2">Home</a>
+<a href="home2.html" class="nav-link text-xl font-semibold border-b pb-2">Home2</a>
+<a href="about.html" class="nav-link text-xl font-semibold border-b pb-2">About</a>
+<!-- <a href="book.html" class="nav-link text-xl font-semibold border-b pb-2">Book Now</a> -->
+<a href="service.html" class="nav-link text-xl font-semibold border-b pb-2">Services</a>
+<a href="contact.html" class="nav-link text-xl font-semibold border-b pb-2">Contact</a>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+    // Get current filename (e.g., 'about.html')
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "index.html"; 
+
+    // Select all links with the 'nav-link' class
+    const allLinks = document.querySelectorAll('.nav-link');
+
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+
+        if (page === href) {
+            // ACTIVE STATE
+            link.classList.add('text-mustard');
+            
+            // For Desktop: Add the bottom border if it's a desktop link
+            if (link.classList.contains('px-3')) {
+                link.classList.add('border-mustard');
+                link.classList.remove('border-transparent');
+            } 
+            // For Mobile: Add a thicker border or different color if desired
+            else {
+                link.classList.add('border-mustard');
+            }
+        } else {
+            // INACTIVE STATE
+            // Reset Desktop borders
+            if (link.classList.contains('px-3')) {
+                link.classList.remove('text-mustard', 'border-mustard');
+                link.classList.add('border-transparent');
+            } 
+            // Reset Mobile borders
+            else {
+                link.classList.remove('text-mustard', 'border-mustard');
+            }
+        }
+    });
+});
+                    </script>
+                    
+                    <div class="py-2">
+                        
+                       <div class="py-2">
+    <button onclick="toggleMobileDropdown()" class="flex items-center justify-between w-full text-mustard font-bold mb-2 outline-none">
+        <span>User Dashboard</span>
+        <i id="dash-arrow" class="fas fa-chevron-down transition-transform duration-300"></i>
+    </button>
+    
+    <div id="mobile-dashboard-menu" class="hidden pl-4 space-y-3 flex flex-col mt-2 border-l-2 border-mustard/30">
+        <a href="user.html" class="nav-link text-lg hover:text-mustard transition-colors">Profile</a>
+        
+    </div>
+</div>
+<script>
+    function toggleMobileDropdown() {
+    const menu = document.getElementById('mobile-dashboard-menu');
+    const arrow = document.getElementById('dash-arrow');
+    
+    // Toggle visibility
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        arrow.classList.add('rotate-180');
+    } else {
+        menu.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
+    }
+}
+</script>
+                    </div>
+                    <a href="login.html">
+                    <button class="bg-mustard text-white py-3 rounded-lg font-bold">Register</button>
+
+                    </a>
+                    <button onclick="toggleDirection()" class="border-2 border-mustard text-mustard py-3 rounded-lg font-bold">Toggle LTR/RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-[80vh] flex items-center justify-center text-center bg-gray-900 text-white">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="assets/indexhero" class="w-full h-full object-cover opacity-50" alt="Garden Hero">
+        </div>
+        <div class="relative z-10 px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6">Grow Food. <br><span class="text-mustard">Build Community</span></h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8">Join the largest urban farming network and reclaim your connection to the earth and your neighbors</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="login.html" class="bg-mustard text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all">Join Garden</a>
+                <a href="service.html" class="bg-white text-gray-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all">Find a Plot</a>
+            </div>
+        </div>
+    </header>
+
+   <section class="py-16 bg-mustard text-white">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div class="counter-card">
+            <p class="text-4xl md:text-5xl font-black mb-2">
+                <span class="stat-number" data-target="1200">0</span>+
+            </p>
+            <p class="uppercase tracking-widest text-xs md:text-sm font-bold opacity-90">Active Members</p>
+        </div>
+        <div class="counter-card">
+            <p class="text-4xl md:text-5xl font-black mb-2">
+                <span class="stat-number" data-target="45">0</span>k lbs
+            </p>
+            <p class="uppercase tracking-widest text-xs md:text-sm font-bold opacity-90">Annual Harvest</p>
+        </div>
+        <div class="counter-card">
+            <p class="text-4xl md:text-5xl font-black mb-2">
+                <span class="stat-number" data-target="84">0</span>
+            </p>
+            <p class="uppercase tracking-widest text-xs md:text-sm font-bold opacity-90">Urban Gardens</p>
+        </div>
+        <div class="counter-card">
+            <p class="text-4xl md:text-5xl font-black mb-2">
+                <span class="stat-number" data-target="12">0</span>
+            </p>
+            <p class="uppercase tracking-widest text-xs md:text-sm font-bold opacity-90">Cities Reached</p>
+        </div>
+    </div>
+</section>
+<script>document.addEventListener("DOMContentLoaded", () => {
+    const stats = document.querySelectorAll('.stat-number');
+    const speed = 200; // The lower the slower
+
+    const animateStats = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const updateCount = () => {
+                    const target = +entry.target.getAttribute('data-target');
+                    const count = +entry.target.innerText;
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        entry.target.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        entry.target.innerText = target;
+                    }
+                };
+                updateCount();
+                observer.unobserve(entry.target); // Stop observing once animated
+            }
+        });
+    };
+
+    const statsObserver = new IntersectionObserver(animateStats, {
+        threshold: 0.5 // Start when 50% of the section is visible
+    });
+
+    stats.forEach(stat => statsObserver.observe(stat));
+});</script>
+<section class="py-24 bg-[#FBF7EE] dark:bg-neutral-900 transition-colors duration-500 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+            
+            <div class="w-full lg:w-1/2 relative">
+                <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-700">
+                    <img src="assets/agi img1" 
+                         alt="Community Garden Transformation" 
+                         class="w-full h-[400px] md:h-[500px] object-cover">
+                </div>
+                
+                <div class="hidden lg:block absolute -bottom-6 -right-6 w-64 h-64 bg-mustard/10 rounded-3xl -z-0"></div>
+                
+                <div class="absolute -top-4 -left-4 md:top-8 md:-left-8 bg-white dark:bg-darkCard p-4 rounded-2xl shadow-xl z-20 flex items-center space-x-4 animate-bounce-slow">
+                    <div class="bg-mustard/20 p-3 rounded-full">
+                        <i class="fas fa-heart text-mustard text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 font-bold uppercase tracking-tighter">Impact</p>
+                        <p class="text-lg font-black text-gray-900 dark:text-white">200+ Families Fed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-1/2">
+                <div class="space-y-6">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-mustard/10 text-mustard font-bold text-sm uppercase tracking-widest">
+                        Our Featured Story
+                    </div>
+                    
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-tight">
+                        From Empty Land to <br>
+                        <span class="text-mustard">Thriving Community.</span>
+                    </h2>
+                    
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed italic border-l-4 border-mustard pl-6">
+                        "Two years ago, this was an abandoned lot in the heart of the city. Today, it’s a sanctuary where children learn to plant and neighbors share their harvests."
+                    </p>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        The GreenRoot initiative provided the tools, seeds, and training. But it was the residents of Salem who provided the heart. This garden hasn't just grown vegetables; it has grown friendships, security, and a greener future for everyone involved.
+                    </p>
+
+                    <div class="pt-6 flex flex-col sm:flex-row items-center gap-6">
+                        <a href="about.html" class="w-full sm:w-auto text-center bg-mustard text-white px-8 py-4 rounded-full font-bold hover:bg-black transition-all shadow-lg hover:shadow-mustard/30">
+                            Read Full Story
+                        </a>
+                        <div class="flex items-center space-x-3">
+                            <img src="assets/agi img1dp" alt="Founder" class="w-12 h-12 rounded-full border-2 border-mustard">
+                            <div>
+                                <p class="font-bold text-gray-900 dark:text-white">Priya Sharma</p>
+                                <p class="text-xs text-gray-500">Lead Community Grower</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes bounce-slow {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .animate-bounce-slow {
+        animation: bounce-slow 4s infinite ease-in-out;
+    }
+</style>
+<section class="py-20 bg-gray-50 dark:bg-neutral-900 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">
+                Explore <span class="text-mustard">Local Gardens</span>
+            </h2>
+            <a href="service.html" class="inline-flex items-center text-mustard font-semibold hover:text-gray-900 dark:hover:text-white mt-4 sm:mt-0 transition-colors">
+                View All Gardens
+                <i class="fas fa-arrow-right ml-2 text-sm transition-transform hover:translate-x-1"></i>
+            </a>
+        </div>
+
+        <div class="
+            flex lg:grid 
+            flex-nowrap lg:grid-cols-3 
+            overflow-x-auto lg:overflow-x-visible 
+            gap-8 lg:gap-10
+            pb-6 lg:pb-0
+            scrollbar-hide 
+            -mx-4 px-4 sm:mx-0 sm:px-0
+        " id="garden-scroller">
+
+            <div class="
+                garden-card group flex-shrink-0
+                w-[280px] sm:w-[320px] lg:w-full 
+                bg-[#FBF7EE] dark:bg-darkCard
+                rounded-3xl overflow-hidden
+                shadow-soft dark:shadow-none
+                border border-gray-100 dark:border-neutral-800
+                transition-all duration-500 ease-out 
+                transform hover:-translate-y-2 hover:shadow-xl
+            ">
+                <div class="relative h-60 lg:h-52 overflow-hidden">
+                    <img src="assets/garden1" 
+                        alt="The Sunnyside Commons" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute top-4 left-4 bg-white/80 dark:bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-mustard">
+                        6 Plots Left
+                    </div>
+                </div>
+                
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-mustard transition-colors">The Sunnyside Commons</h3>
+                        <span class="text-mustard"><i class="fas fa-seedling"></i></span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>Salem, Tamil Nadu
+                    </p>
+                    
+                    <a href="book.html" class="block w-full text-center bg-mustard hover:bg-black text-white px-6 py-3.5 rounded-xl font-bold transition-all transform active:scale-95 whitespace-nowrap">
+                        Join Now
+                    </a>
+                </div>
+            </div>
+
+            <div class="
+                garden-card group flex-shrink-0
+                w-[280px] sm:w-[320px] lg:w-full 
+                bg-[#FBF7EE] dark:bg-darkCard
+                rounded-3xl overflow-hidden
+                shadow-soft dark:shadow-none
+                border border-gray-100 dark:border-neutral-800
+                transition-all duration-500 ease-out 
+                transform hover:-translate-y-2 hover:shadow-xl
+            ">
+                <div class="relative h-60 lg:h-52 overflow-hidden">
+                    <img src="assets/garden2" 
+                        alt="Heritage Roots Farm" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                        Waitlist Full
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-mustard transition-colors">Heritage Roots Farm</h3>
+                        <span class="text-mustard"><i class="fas fa-leaf"></i></span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>Chennai, India
+                    </p>
+                    <a href="book.html" class="block w-full text-center border-2 border-mustard text-mustard hover:bg-mustard hover:text-white px-6 py-3 rounded-xl font-bold transition-all transform active:scale-95 whitespace-nowrap">
+                        View Details
+                    </a>
+                </div>
+            </div>
+
+            <div class="
+                garden-card group flex-shrink-0
+                w-[280px] sm:w-[320px] lg:w-full 
+                bg-[#FBF7EE] dark:bg-darkCard
+                rounded-3xl overflow-hidden
+                shadow-soft dark:shadow-none
+                border border-gray-100 dark:border-neutral-800
+                transition-all duration-500 ease-out 
+                transform hover:-translate-y-2 hover:shadow-xl
+            ">
+                <div class="relative h-60 lg:h-52 overflow-hidden">
+                    <img src="assets/garden3" 
+                        alt="Skyline Hydroponics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000">
+                    <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                        Plots Available
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white group-hover:text-mustard transition-colors">Skyline Hydroponics</h3>
+                        <span class="text-mustard"><i class="fas fa-cloud"></i></span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-2 text-gray-400"></i>Coimbatore, India
+                    </p>
+                    <a href="book.html" class="block w-full text-center bg-mustard hover:bg-black text-white px-6 py-3.5 rounded-xl font-bold transition-all transform active:scale-95 whitespace-nowrap">
+                        Join Now
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="py-24 bg-white dark:bg-darkBg transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        
+        <div class="mb-16">
+            <h2 class="text-mustard uppercase tracking-widest text-sm font-bold mb-3">Simple Process</h2>
+            <h3 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">How It Works</h3>
+            <div class="w-20 h-1.5 bg-mustard mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 relative">
+            
+            <div class="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 border-t-2 border-dashed border-mustard/30 -z-0"></div>
+
+            <div class="group relative z-10 flex flex-col items-center">
+                <div class="w-32 h-32 bg-[#FBF7EE] dark:bg-darkCard rounded-full flex items-center justify-center mb-6 shadow-soft group-hover:bg-mustard group-hover:scale-110 transition-all duration-500 border-2 border-transparent group-hover:border-white">
+                    <i class="fas fa-search-location text-4xl text-mustard group-hover:text-white transition-colors"></i>
+                </div>
+                <div class="bg-mustard text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm mb-4 shadow-md">1</div>
+                <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Find a Garden</h4>
+                <p class="text-gray-500 dark:text-gray-400 max-w-[250px] text-sm leading-relaxed">
+                    Search our interactive map to find the perfect urban farm or garden plot near you.
+                </p>
+            </div>
+
+            <div class="group relative z-10 flex flex-col items-center">
+                <div class="w-32 h-32 bg-[#FBF7EE] dark:bg-darkCard rounded-full flex items-center justify-center mb-6 shadow-soft group-hover:bg-mustard group-hover:scale-110 transition-all duration-500 border-2 border-transparent group-hover:border-white">
+                    <i class="fas fa-calendar-check text-4xl text-mustard group-hover:text-white transition-colors"></i>
+                </div>
+                <div class="bg-mustard text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm mb-4 shadow-md">2</div>
+                <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Book a Plot</h4>
+                <p class="text-gray-500 dark:text-gray-400 max-w-[250px] text-sm leading-relaxed">
+                    Select your preferred plot size and lease duration. Secure your spot in minutes.
+                </p>
+            </div>
+
+            <div class="group relative z-10 flex flex-col items-center">
+                <div class="w-32 h-32 bg-[#FBF7EE] dark:bg-darkCard rounded-full flex items-center justify-center mb-6 shadow-soft group-hover:bg-mustard group-hover:scale-110 transition-all duration-500 border-2 border-transparent group-hover:border-white">
+                    <i class="fas fa-seedling text-4xl text-mustard group-hover:text-white transition-colors"></i>
+                </div>
+                <div class="bg-mustard text-white w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm mb-4 shadow-md">3</div>
+                <h4 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Start Growing</h4>
+                <p class="text-gray-500 dark:text-gray-400 max-w-[250px] text-sm leading-relaxed">
+                    Get your seeds in the soil! Join community workshops and harvest your own fresh food.
+                </p>
+            </div>
+
+        </div>
+        
+        <div class="mt-20">
+            <a href="book.html" class="bg-mustard text-white px-10 py-4 rounded-full font-bold hover:bg-black transition-all shadow-lg hover:shadow-mustard/20">
+                Get Started Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="py-12 bg-gray-50 dark:bg-neutral-900 border-b dark:border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4">
+        <h1 class="text-3xl md:text-4xl font-bold mb-8">Explore Gardens</h1>
+        
+        <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div class="relative w-full lg:w-1/3">
+                <i class="fas fa-search absolute left-4 top-1/2 -transform -translate-y-1/2 text-gray-400"></i>
+                <input type="text" placeholder="Search by city or zip code..." 
+                    class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 dark:border-neutral-700 dark:bg-darkCard focus:ring-2 focus:ring-mustard outline-none transition-all">
+            </div>
+
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="px-5 py-2 rounded-full bg-mustard text-white font-semibold text-sm">All Types</button>
+                <button class="px-5 py-2 rounded-full bg-white dark:bg-darkCard border border-gray-200 dark:border-neutral-700 hover:border-mustard transition-colors text-sm">Organic</button>
+                <button class="px-5 py-2 rounded-full bg-white dark:bg-darkCard border border-gray-200 dark:border-neutral-700 hover:border-mustard transition-colors text-sm">Hydroponic</button>
+                <button class="px-5 py-2 rounded-full bg-white dark:bg-darkCard border border-gray-200 dark:border-neutral-700 hover:border-mustard transition-colors text-sm">Rooftop</button>
+            </div>
+
+            <div class="flex bg-gray-200 dark:bg-neutral-800 p-1 rounded-lg">
+                <button class="px-4 py-2 bg-white dark:bg-darkCard shadow-sm rounded-md text-mustard"><i class="fas fa-th-large"></i></button>
+                <button class="px-4 py-2 text-gray-500 hover:text-mustard"><i class="fas fa-map-marked-alt"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="mb-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white">Our <span class="text-mustard">Active Gardens</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-3 max-w-2xl mx-auto">Discover thriving community spaces near you and secure your plot today.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="group bg-white dark:bg-darkCard rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800">
+            <div class="relative h-64 overflow-hidden">
+                <img src="assets/garden1" 
+                    alt="Green Valley" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-mustard">
+                    6 Plots Left
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold group-hover:text-mustard transition-colors">Green Valley Community</h3>
+                    <span class="text-mustard"><i class="fas fa-leaf"></i></span>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Salem, Tamil Nadu</p>
+                <div class="flex items-center justify-between mt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 font-bold">Size</p>
+                        <p class="font-bold text-sm">2,400 sqft</p>
+                    </div>
+                    <button class="bg-mustard hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-6 py-2.5 rounded-xl font-bold transition-all transform active:scale-95"> Join Garden </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="group bg-white dark:bg-darkCard rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800">
+            <div class="relative h-64 overflow-hidden">
+                <img src="assets/garden2" 
+                    alt="Urban Oasis" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Waitlist
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold group-hover:text-mustard transition-colors">Urban Oasis Rooftop</h3>
+                    <span class="text-mustard"><i class="fas fa-cloud"></i></span>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Chennai, India</p>
+                <div class="flex items-center justify-between mt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 font-bold">Size</p>
+                        <p class="font-bold text-sm">800 sqft</p>
+                    </div>
+                    <button class="border-2 border-mustard text-mustard hover:bg-mustard hover:text-white px-6 py-2 rounded-xl font-bold transition-all"> View Details </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="group bg-white dark:bg-darkCard rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800">
+            <div class="relative h-64 overflow-hidden">
+                <img src="assets/garden3" 
+                    alt="Harvest Hub" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Available
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold group-hover:text-mustard transition-colors">Harvest Hub Gardens</h3>
+                    <span class="text-mustard"><i class="fas fa-sun"></i></span>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Coimbatore, India</p>
+                <div class="flex items-center justify-between mt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 font-bold">Size</p>
+                        <p class="font-bold text-sm">1,500 sqft</p>
+                    </div>
+                    <button class="bg-mustard hover:bg-black text-white px-6 py-2.5 rounded-xl font-bold transition-all transform active:scale-95"> Join Garden </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="group bg-white dark:bg-darkCard rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800">
+            <div class="relative h-64 overflow-hidden">
+                <img src="assets/garden4" 
+                    alt="Skyline Hydroponics" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-mustard">
+                    4 Plots Left
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold group-hover:text-mustard transition-colors">Skyline Hydroponics</h3>
+                    <span class="text-mustard"><i class="fas fa-water"></i></span>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Kochi, Kerala</p>
+                <div class="flex items-center justify-between mt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 font-bold">Size</p>
+                        <p class="font-bold text-sm">1,200 sqft</p>
+                    </div>
+                    <button class="bg-mustard hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-6 py-2.5 rounded-xl font-bold transition-all transform active:scale-95"> Join Garden </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="group bg-white dark:bg-darkCard rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800">
+            <div class="relative h-64 overflow-hidden">
+                <img src="assets/garden5" 
+                    alt="Heritage Roots" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Available
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold group-hover:text-mustard transition-colors">Heritage Roots Farm</h3>
+                    <span class="text-mustard"><i class="fas fa-seedling"></i></span>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Madurai, Tamil Nadu</p>
+                <div class="flex items-center justify-between mt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 font-bold">Size</p>
+                        <p class="font-bold text-sm">3,500 sqft</p>
+                    </div>
+                    <button class="bg-mustard hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-6 py-2.5 rounded-xl font-bold transition-all transform active:scale-95"> Join Garden </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="group bg-white dark:bg-darkCard rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800">
+            <div class="relative h-64 overflow-hidden">
+                <img src="assets/garden6" 
+                    alt="The Meadow Collective" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-white/90 dark:bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-mustard">
+                    Last 2 Plots
+                </div>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-xl font-bold group-hover:text-mustard transition-colors">The Meadow Collective</h3>
+                    <span class="text-mustard"><i class="fas fa-users"></i></span>
+                </div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mb-4"><i class="fas fa-map-marker-alt mr-2"></i>Trivandrum, Kerala</p>
+                <div class="flex items-center justify-between mt-6">
+                    <div>
+                        <p class="text-[10px] uppercase text-gray-400 font-bold">Size</p>
+                        <p class="font-bold text-sm">1,800 sqft</p>
+                    </div>
+                    <button class="bg-mustard hover:bg-black dark:hover:bg-white dark:hover:text-black text-white px-6 py-2.5 rounded-xl font-bold transition-all transform active:scale-95"> Join Garden </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- <section class="py-20 px-4 max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Featured Gardens</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=800" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">The Sunnyside Commons</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">A thriving vegetable hub in the heart of downtown.</p>
+                    <span class="text-mustard font-bold">12 Plots Available</span>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?auto=format&fit=crop&q=80&w=800" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Heritage Roots Farm</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Dedicated to organic heirloom varieties and education.</p>
+                    <span class="text-mustard font-bold">Waiting List Open</span>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-darkCard rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-800">
+                <img src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=800" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Skyline Rooftop Garden</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Modern hydroponics with a view of the city skyline.</p>
+                    <span class="text-mustard font-bold">4 Plots Available</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+ <section class="py-12 md:py-20 bg-gray-50 dark:bg-darkBg transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
+            <div class="text-left">
+                <h2 class="text-mustard font-bold uppercase tracking-widest text-xs mb-2">Join the Movement</h2>
+                <h3 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Upcoming Events</h3>
+            </div>
+            <a href="book.html" class="text-sm text-gray-500 hover:text-mustard font-bold border-b-2 border-transparent hover:border-mustard transition-all pb-1">
+                View Calendar <i class="fas fa-chevron-right ml-2 text-xs"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="group bg-white dark:bg-darkCard rounded-3xl p-2 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800 flex flex-col h-full">
+                <div class="relative overflow-hidden rounded-2xl h-48 flex-shrink-0">
+                    <img src="assets/event1" alt="Composting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-4 right-4 bg-white dark:bg-darkBg p-2 rounded-xl text-center min-w-[55px] shadow-lg">
+                        <p class="text-mustard font-black text-lg leading-none">15</p>
+                        <p class="text-[10px] uppercase font-bold text-gray-400">Oct</p>
+                    </div>
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-mustard mb-2">Workshop</span>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-mustard transition-colors">Mastering Composting 101</h4>
+                    <div class="space-y-1.5 mb-6">
+                        <p class="text-xs text-gray-500 flex items-center"><i class="far fa-clock mr-2 text-mustard"></i> 10:00 AM - 12:00 PM</p>
+                        <p class="text-xs text-gray-500 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-mustard"></i> Salem Central Garden</p>
+                    </div>
+                    <button class="mt-auto w-full py-3 rounded-xl bg-gray-100 dark:bg-neutral-800 text-gray-900 dark:text-white font-bold group-hover:bg-mustard group-hover:text-white transition-all transform active:scale-95 text-sm">
+                        Join Workshop
+                    </button>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-darkCard rounded-3xl p-2 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800 flex flex-col h-full">
+                <div class="relative overflow-hidden rounded-2xl h-48 flex-shrink-0">
+                    <img src="assets/event2" alt="Terrace Farming" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-4 right-4 bg-white dark:bg-darkBg p-2 rounded-xl text-center min-w-[55px] shadow-lg">
+                        <p class="text-mustard font-black text-lg leading-none">22</p>
+                        <p class="text-[10px] uppercase font-bold text-gray-400">Oct</p>
+                    </div>
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-mustard mb-2">Education</span>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-mustard transition-colors">Terrace Farming Class</h4>
+                    <div class="space-y-1.5 mb-6">
+                        <p class="text-xs text-gray-500 flex items-center"><i class="far fa-clock mr-2 text-mustard"></i> 4:00 PM - 6:00 PM</p>
+                        <p class="text-xs text-gray-500 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-mustard"></i> Online via Zoom</p>
+                    </div>
+                    <button class="mt-auto w-full py-3 rounded-xl bg-gray-100 dark:bg-neutral-800 text-gray-900 dark:text-white font-bold group-hover:bg-mustard group-hover:text-white transition-all transform active:scale-95 text-sm">
+                        Reserve Spot
+                    </button>
+                </div>
+            </div>
+
+            <div class="group bg-white dark:bg-darkCard rounded-3xl p-2 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800 flex flex-col h-full md:col-span-2 lg:col-span-1">
+                <div class="relative overflow-hidden rounded-2xl h-48 lg:h-48 flex-shrink-0">
+                    <img src="assets/event3" alt="Meetup" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute top-4 right-4 bg-white dark:bg-darkBg p-2 rounded-xl text-center min-w-[55px] shadow-lg">
+                        <p class="text-mustard font-black text-lg leading-none">28</p>
+                        <p class="text-[10px] uppercase font-bold text-gray-400">Oct</p>
+                    </div>
+                </div>
+                <div class="p-5 flex-grow flex flex-col">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-mustard mb-2">Community</span>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-mustard transition-colors">Growers Monthly Meetup</h4>
+                    <div class="space-y-1.5 mb-6">
+                        <p class="text-xs text-gray-500 flex items-center"><i class="far fa-clock mr-2 text-mustard"></i> 6:00 PM - 8:00 PM</p>
+                        <p class="text-xs text-gray-500 flex items-center"><i class="fas fa-map-marker-alt mr-2 text-mustard"></i> The Seed Cafe</p>
+                    </div>
+                    <button class="mt-auto w-full py-3 rounded-xl bg-gray-100 dark:bg-neutral-800 text-gray-900 dark:text-white font-bold group-hover:bg-mustard group-hover:text-white transition-all transform active:scale-95 text-sm">
+                        Register Free
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section class="py-12 md:py-16 bg-[#FBF7EE] dark:bg-neutral-900 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-10">
+            <h2 class="text-mustard font-bold uppercase tracking-widest text-xs mb-2">Community Voices</h2>
+            <h3 class="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">What Our Growers Say</h3>
+            <div class="w-16 h-1 bg-mustard mx-auto mt-3 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            
+            <div class="group bg-white dark:bg-darkCard p-6 lg:p-8 rounded-3xl shadow-soft hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800 transform hover:-translate-y-2 flex flex-col h-full">
+                <div class="flex items-center mb-5">
+                    <div class="relative flex-shrink-0">
+                        <img src="assets/t1" alt="Sarah J." class="w-14 h-14 rounded-full border-4 border-mustard/20 group-hover:border-mustard transition-colors duration-500">
+                        <div class="absolute -bottom-1 -right-1 bg-mustard text-white text-[8px] p-1 rounded-full">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm lg:text-base">Sarah Jenkins</h4>
+                        <p class="text-[11px] text-gray-500">Skyline Garden Member</p>
+                    </div>
+                </div>
+                <div class="flex text-mustard text-[10px] mb-3">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed italic flex-grow">
+                    "Joining the GreenRoot network was the best decision I made this year. I've harvested over 20lbs of organic tomatoes."
+                </p>
+            </div>
+
+            <div class="group bg-white dark:bg-darkCard p-6 lg:p-8 rounded-3xl shadow-soft hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800 transform hover:-translate-y-2 flex flex-col h-full">
+                <div class="flex items-center mb-5">
+                    <div class="relative flex-shrink-0">
+                        <img src="assets/t2" alt="Mark T." class="w-14 h-14 rounded-full border-4 border-mustard/20 group-hover:border-mustard transition-colors duration-500">
+                        <div class="absolute -bottom-1 -right-1 bg-mustard text-white text-[8px] p-1 rounded-full">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm lg:text-base">Mark Thorne</h4>
+                        <p class="text-[11px] text-gray-500">Heritage Roots Farm</p>
+                    </div>
+                </div>
+                <div class="flex text-mustard text-[10px] mb-3">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed italic flex-grow">
+                    "The educational workshops are top-notch. I went from having zero experience to a thriving terrace farm."
+                </p>
+            </div>
+
+            <div class="group bg-white dark:bg-darkCard p-6 lg:p-8 rounded-3xl shadow-soft hover:shadow-xl transition-all duration-500 border border-gray-100 dark:border-neutral-800 transform hover:-translate-y-2 flex flex-col h-full md:col-span-2 lg:col-span-1">
+                <div class="flex items-center mb-5">
+                    <div class="relative flex-shrink-0">
+                        <img src="assets/t3" alt="Ananya R." class="w-14 h-14 rounded-full border-4 border-mustard/20 group-hover:border-mustard transition-colors duration-500">
+                        <div class="absolute -bottom-1 -right-1 bg-mustard text-white text-[8px] p-1 rounded-full">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <h4 class="font-bold text-gray-900 dark:text-white text-sm lg:text-base">Ananya Rao</h4>
+                        <p class="text-[11px] text-gray-500">Community Volunteer</p>
+                    </div>
+                </div>
+                <div class="flex text-mustard text-[10px] mb-3">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed italic flex-grow">
+                    "Beautiful initiative. It’s amazing to see children getting their hands dirty. Truly a green revolution!"
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+        <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-mustard to-[#B88A12] shadow-2xl">
+            
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-black/10 rounded-full blur-2xl"></div>
+
+            <div class="relative z-10 px-8 py-16 md:py-24 text-center max-w-4xl mx-auto">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl mb-8 animate-float">
+                    <i class="fas fa-paper-plane text-white text-3xl"></i>
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                    Ready to Start Your <br class="hidden md:block"> Urban Farm Journey?
+                </h2>
+                
+                <p class="text-white/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+                    Join 1,200+ local growers today. Get early access to plot bookings, 
+                    gardening tips, and exclusive community events.
+                </p>
+
+                <form action="#" class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <div class="flex-grow">
+                        <input type="email" placeholder="Enter your email address" 
+                            class="w-full px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white placeholder-white/60 focus:outline-none focus:ring-4 focus:ring-white/20 transition-all backdrop-blur-md">
+                    </div>
+                    <a href="login.html">
+ <button type="submit" 
+                        class="px-8 py-4 bg-white text-mustard font-black rounded-full hover:bg-black hover:text-white transition-all transform hover:scale-105 active:scale-95 shadow-xl whitespace-nowrap">
+                        Join the Network
+                    </button>
+                    </a>
+                   
+                </form>
+
+                <p class="mt-6 text-white/60 text-sm">
+                    <i class="fas fa-shield-alt mr-2"></i> No spam. Only green vibes.
+                </p>
+            </div>
+
+            <div class="hidden lg:block absolute top-10 left-10 text-white/20 text-5xl animate-spin-slow">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <div class="hidden lg:block absolute bottom-10 right-20 text-white/20 text-6xl animate-bounce-slow">
+                <i class="fas fa-seedling"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Custom Animations for CTA */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+    .animate-float {
+        animation: float 5s infinite ease-in-out;
+    }
+    
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+        animation: spin-slow 12s infinite linear;
+    }
+
+    @keyframes bounce-slow {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
+    }
+    .animate-bounce-slow {
+        animation: bounce-slow 6s infinite ease-in-out;
+    }
+</style>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                  <a href="index.html" class="flex items-center group">
+        <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+        </div>
+       <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+    </a>
+                <!-- <h3 class="text-mustard text-2xl font-bold mb-6 uppercase">GreenRoot</h3> -->
+                <p class="text-gray-400 mb-6">Empowering urban citizens to take back their food security and cultivate green spaces together.</p>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="index.html" class="hover:text-white">Home</a></li>
+                    <li><a href="home2.html" class="hover:text-white">Home2</a></li>
+                    <li><a href="book.html" class="hover:text-white">Book Now</a></li>
+                    <li><a href="service.html" class="hover:text-white">Services</a></li>
+                    <li><a href="comingsoon.html" class="hover:text-white">comingsoon</a></li>
+                    
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Support</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="about.html" class="hover:text-white">About</a></li>
+                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms</a></li>
+                    <li><a href="404.html" class="hover:text-white">404</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Newsletter</h4>
+                <p class="text-gray-400 mb-4">Get gardening tips and local events sent to your inbox.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Email" class="w-full p-3 bg-gray-800 text-white rounded-l outline-none focus:ring-1 focus:ring-mustard">
+                    <button class="bg-mustard px-4 rounded-r font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+            } else {
+                menu.classList.add('translate-x-full');
+            }
+        }
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            const iconMob = document.getElementById('themeIconMobile');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                iconMob.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                iconMob.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // LTR/RTL Toggle Logic
+        function toggleDirection() {
+            const html = document.getElementById('rootElement');
+            const currentDir = html.getAttribute('dir');
+            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('direction', newDir);
+        }
+
+        // Load Persisted Settings
+        window.onload = () => {
+            // Theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+                document.getElementById('themeIconMobile').classList.replace('fa-moon', 'fa-sun');
+            }
+            // Direction
+            if (localStorage.getItem('direction')) {
+                document.getElementById('rootElement').setAttribute('dir', localStorage.getItem('direction'));
+            }
+        };
+    </script>
+</body>
+</html>

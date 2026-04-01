@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="rootElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>Sign Up | GreenRoot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FBF7EE] dark:bg-darkBg text-gray-900 dark:text-gray-100 min-h-screen flex flex-col transition-all duration-300">
+
+    <nav class="w-full p-6 flex justify-between items-center">
+        <a href="index.html" class="flex items-center group">
+            <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </div>
+            <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+        </a>
+
+        <div class="flex items-center space-x-2 md:space-x-4">
+            <button onclick="toggleDirection()" class="text-[10px] md:text-xs font-bold px-3 py-2 bg-white dark:bg-darkCard rounded-full shadow-sm border dark:border-neutral-800 hover:text-mustard transition-colors">
+                LTR / RTL
+            </button>
+            <button onclick="toggleTheme()" class="p-2 bg-white dark:bg-darkCard rounded-full shadow-sm border dark:border-neutral-800 text-gray-500 hover:text-mustard transition-colors">
+                <i id="themeIcon" class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-8">
+        <div class="w-full max-w-[450px] bg-white dark:bg-darkCard p-8 md:p-10 rounded-[2.5rem] shadow-2xl border border-gray-100 dark:border-neutral-800 transition-all">
+            
+            <div class="text-center mb-6">
+                <h1 class="text-3xl font-black mb-2">Create Account</h1>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">Join the community and start growing today.</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 mb-6">
+                <button class="flex justify-center py-3 border dark:border-neutral-800 rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors">
+                    <i class="fab fa-google text-red-500"></i>
+                </button>
+                <button class="flex justify-center py-3 border dark:border-neutral-800 rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors">
+                    <i class="fab fa-facebook text-blue-600"></i>
+                </button>
+                <button class="flex justify-center py-3 border dark:border-neutral-800 rounded-xl hover:bg-gray-50 dark:hover:bg-neutral-800 transition-colors">
+                    <i class="fab fa-apple text-gray-900 dark:text-white"></i>
+                </button>
+            </div>
+
+            <div class="relative mb-6">
+                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-100 dark:border-neutral-800"></div></div>
+                <div class="relative flex justify-center text-xs uppercase"><span class="bg-white dark:bg-darkCard px-2 text-gray-400">Or sign up with email</span></div>
+            </div>
+            <form action="#" class="space-y-4">
+    <div>
+        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">First Name</label>
+        <input type="text" placeholder="John" 
+            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+    </div>
+
+    <div>
+        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Last Name</label>
+        <input type="text" placeholder="Doe" 
+            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+    </div>
+
+    <div>
+        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Email Address</label>
+        <input type="email" placeholder="john@example.com" 
+            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+    </div>
+
+    <div>
+        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Create Password</label>
+        <input type="password" placeholder="••••••••" 
+            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+    </div>
+
+    <div class="flex items-start space-x-2 ml-1 py-2">
+        <input type="checkbox" id="terms" class="mt-1 w-4 h-4 accent-mustard rounded border-gray-300">
+        <label for="terms" class="text-xs text-gray-500 leading-tight">
+            I agree to the <a href="#" class="text-mustard font-bold hover:underline">Terms of Service</a> and <a href="#" class="text-mustard font-bold hover:underline">Privacy Policy</a>.
+        </label>
+    </div>
+
+    <button type="submit" class="w-full py-4 bg-mustard text-white rounded-2xl font-black text-lg hover:bg-black transition-all transform active:scale-95 shadow-lg shadow-mustard/20">
+        Get Started
+    </button>
+</form>
+<!-- 
+            <form action="#" class="space-y-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">First Name</label>
+                        <input type="text" placeholder="John" 
+                            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Last Name</label>
+                        <input type="text" placeholder="Doe" 
+                            class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Email Address</label>
+                    <input type="email" placeholder="john@example.com" 
+                        class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-1 ml-1">Create Password</label>
+                    <input type="password" placeholder="••••••••" 
+                        class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-neutral-900 border border-transparent focus:border-mustard outline-none transition-all text-sm">
+                </div>
+
+                <div class="flex items-start space-x-2 ml-1 py-2">
+                    <input type="checkbox" id="terms" class="mt-1 w-4 h-4 accent-mustard rounded border-gray-300">
+                    <label for="terms" class="text-xs text-gray-500 leading-tight">
+                        I agree to the <a href="#" class="text-mustard font-bold hover:underline">Terms of Service</a> and <a href="#" class="text-mustard font-bold hover:underline">Privacy Policy</a>.
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full py-4 bg-mustard text-white rounded-2xl font-black text-lg hover:bg-black transition-all transform active:scale-95 shadow-lg shadow-mustard/20">
+                    Get Started
+                </button>
+            </form> -->
+
+            <p class="text-center mt-6 text-sm text-gray-500">
+                Already have an account? <a href="login.html" class="text-mustard font-bold hover:underline">Sign In</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        function toggleDirection() {
+            const html = document.getElementById('rootElement');
+            const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('direction', newDir);
+        }
+
+        window.onload = () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+            }
+            if (localStorage.getItem('direction')) {
+                document.getElementById('rootElement').setAttribute('dir', localStorage.getItem('direction'));
+            }
+        };
+    </script>
+</body>
+</html>

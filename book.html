@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="rootElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>GreenRoot | Community Garden & Urban Farm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .transition-all { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-darkBg dark:text-gray-100 transition-all">
+
+    <nav class="sticky top-0 z-50 bg-white dark:bg-darkCard shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+               <div class="flex-shrink-0 flex items-center">
+    <a href="index.html" class="flex items-center group">
+        <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+        </div>
+        <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+    </a>
+</div>
+
+              <div class="hidden lg:flex items-center lg:space-x-2 xl:space-x-4">
+    <div class="flex lg:space-x-1 xl:space-x-4 items-center" id="desktop-nav">
+        <a href="index.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Home</a>
+        <a href="home2.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Home2</a>
+        <a href="about.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">About</a>
+        <!-- <a href="book.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Book Now</a> -->
+        <a href="service.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Services</a>
+        <a href="contact.html" class="nav-link hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium transition-all border-b-2 border-transparent">Contact</a>
+    </div>
+
+    <div class="relative group">
+        <button class="flex items-center hover:text-mustard lg:px-2 xl:px-3 py-2 lg:text-sm xl:text-base font-medium">
+            Dashboard <i class="fas fa-chevron-down ml-1 text-[10px]"></i>
+        </button>
+        <div class="absolute hidden group-hover:block w-48 bg-white dark:bg-darkCard border dark:border-gray-700 shadow-xl mt-0 rounded-md z-50">
+            <a href="user.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Profile</a>
+            <!-- <a href="plots.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">My Plots</a> -->
+            <!-- <a href="settings.html" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Settings</a> -->
+        </div>
+    </div>
+<a href="login.html">
+<button class="bg-mustard text-white lg:px-4 xl:px-6 lg:py-1.5 xl:py-2 rounded-full hover:bg-opacity-90 font-bold lg:text-sm xl:text-base transition-all whitespace-nowrap">
+        Register
+    </button>
+</a>
+    
+    
+    <div class="flex items-center lg:space-x-1 xl:space-x-2 border-l lg:pl-2 xl:pl-4 dark:border-gray-700">
+        <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+            <i id="themeIcon" class="fas fa-moon lg:text-sm xl:text-base"></i>
+        </button>
+        <button onclick="toggleDirection()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 lg:text-[10px] xl:text-xs font-bold whitespace-nowrap">
+            LTR/RTL
+        </button>
+    </div>
+</div>
+
+                <div class="lg:hidden flex items-center space-x-3">
+                    <button onclick="toggleTheme()" class="p-2 text-xl"><i id="themeIconMobile" class="fas fa-moon"></i></button>
+                    <button onclick="toggleMobileMenu()" class="text-3xl text-mustard">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="fixed inset-0 bg-white dark:bg-darkBg z-[60] transform translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-mustard text-2xl font-bold">GreenRoot</span>
+                    <button onclick="toggleMobileMenu()" class="text-2xl text-gray-500">✕</button>
+                </div>
+                <div class="flex flex-col space-y-4">
+                   <a href="index.html" class="nav-link text-xl font-semibold border-b pb-2">Home</a>
+<a href="home2.html" class="nav-link text-xl font-semibold border-b pb-2">Home2</a>
+<a href="about.html" class="nav-link text-xl font-semibold border-b pb-2">About</a>
+<!-- <a href="book.html" class="nav-link text-xl font-semibold border-b pb-2">Book Now</a> -->
+<a href="service.html" class="nav-link text-xl font-semibold border-b pb-2">Services</a>
+<a href="contact.html" class="nav-link text-xl font-semibold border-b pb-2">Contact</a>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+    // Get current filename (e.g., 'about.html')
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "index.html"; 
+
+    // Select all links with the 'nav-link' class
+    const allLinks = document.querySelectorAll('.nav-link');
+
+    allLinks.forEach(link => {
+        const href = link.getAttribute('href');
+
+        if (page === href) {
+            // ACTIVE STATE
+            link.classList.add('text-mustard');
+            
+            // For Desktop: Add the bottom border if it's a desktop link
+            if (link.classList.contains('px-3')) {
+                link.classList.add('border-mustard');
+                link.classList.remove('border-transparent');
+            } 
+            // For Mobile: Add a thicker border or different color if desired
+            else {
+                link.classList.add('border-mustard');
+            }
+        } else {
+            // INACTIVE STATE
+            // Reset Desktop borders
+            if (link.classList.contains('px-3')) {
+                link.classList.remove('text-mustard', 'border-mustard');
+                link.classList.add('border-transparent');
+            } 
+            // Reset Mobile borders
+            else {
+                link.classList.remove('text-mustard', 'border-mustard');
+            }
+        }
+    });
+});
+                    </script>
+                    
+                    <div class="py-2">
+                        
+                       <div class="py-2">
+    <button onclick="toggleMobileDropdown()" class="flex items-center justify-between w-full text-mustard font-bold mb-2 outline-none">
+        <span>User Dashboard</span>
+        <i id="dash-arrow" class="fas fa-chevron-down transition-transform duration-300"></i>
+    </button>
+    
+    <div id="mobile-dashboard-menu" class="hidden pl-4 space-y-3 flex flex-col mt-2 border-l-2 border-mustard/30">
+        <a href="user.html" class="nav-link text-lg hover:text-mustard transition-colors">Profile</a>
+        
+    </div>
+</div>
+<script>
+    function toggleMobileDropdown() {
+    const menu = document.getElementById('mobile-dashboard-menu');
+    const arrow = document.getElementById('dash-arrow');
+    
+    // Toggle visibility
+    if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        arrow.classList.add('rotate-180');
+    } else {
+        menu.classList.add('hidden');
+        arrow.classList.remove('rotate-180');
+    }
+}
+</script>
+                    </div>
+                    <a href="login.html">
+                    <button class="bg-mustard text-white py-3 rounded-lg font-bold">Register</button>
+
+                    </a>
+                    <button onclick="toggleDirection()" class="border-2 border-mustard text-mustard py-3 rounded-lg font-bold">Toggle LTR/RTL</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="booking" class="py-20 bg-white dark:bg-darkBg transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+            <h2 class="text-mustard font-bold uppercase tracking-widest text-sm mb-3">Secure Your Plot</h2>
+            <h3 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white">Start Your Garden Journey</h3>
+            <div class="w-24 h-1.5 bg-mustard mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
+            
+            <div class="lg:col-span-2 space-y-10">
+                
+                <div>
+                    <label class="flex items-center text-lg font-bold mb-6 text-gray-900 dark:text-white">
+                        <span class="w-8 h-8 rounded-full bg-mustard text-white flex items-center justify-center mr-3 text-sm">1</span>
+                        Select Your Garden Location
+                    </label>
+                    <div class="relative">
+                        <select id="garden-select" class="w-full px-6 py-4 rounded-2xl bg-gray-50 dark:bg-darkCard border-2 border-transparent focus:border-mustard outline-none transition-all appearance-none cursor-pointer text-gray-700 dark:text-gray-300">
+                            <option value="150">Salem Central Community Garden</option>
+                            <option value="200">Urban Oasis Rooftop (Chennai)</option>
+                            <option value="120">Heritage Roots Farm (Madurai)</option>
+                            <option value="180">Skyline Hydroponics (Kochi)</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-6 text-mustard">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="flex items-center text-lg font-bold mb-6 text-gray-900 dark:text-white">
+                        <span class="w-8 h-8 rounded-full bg-mustard text-white flex items-center justify-center mr-3 text-sm">2</span>
+                        Choose Plot Size
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <button onclick="selectPlot(this, 1)" class="plot-card group p-6 rounded-3xl border-2 border-gray-100 dark:border-neutral-800 bg-white dark:bg-darkCard hover:border-mustard transition-all text-left active-plot">
+                            <i class="fas fa-seedling text-2xl text-mustard mb-4"></i>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Starter</h4>
+                            <p class="text-xs text-gray-500 mb-2">50 sq. ft</p>
+                            <p class="text-sm font-black text-mustard">Base Price</p>
+                        </button>
+                        <button onclick="selectPlot(this, 1.5)" class="plot-card group p-6 rounded-3xl border-2 border-gray-100 dark:border-neutral-800 bg-white dark:bg-darkCard hover:border-mustard transition-all text-left">
+                            <i class="fas fa-leaf text-2xl text-gray-300 group-hover:text-mustard transition-colors mb-4"></i>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Standard</h4>
+                            <p class="text-xs text-gray-500 mb-2">100 sq. ft</p>
+                            <p class="text-sm font-black text-gray-400 group-hover:text-mustard">Base x 1.5</p>
+                        </button>
+                        <button onclick="selectPlot(this, 2.5)" class="plot-card group p-6 rounded-3xl border-2 border-gray-100 dark:border-neutral-800 bg-white dark:bg-darkCard hover:border-mustard transition-all text-left">
+                            <i class="fas fa-tree text-2xl text-gray-300 group-hover:text-mustard transition-colors mb-4"></i>
+                            <h4 class="font-bold text-gray-900 dark:text-white">Family</h4>
+                            <p class="text-xs text-gray-500 mb-2">250 sq. ft</p>
+                            <p class="text-sm font-black text-gray-400 group-hover:text-mustard">Base x 2.5</p>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="flex items-center text-lg font-bold mb-6 text-gray-900 dark:text-white">
+                        <span class="w-8 h-8 rounded-full bg-mustard text-white flex items-center justify-center mr-3 text-sm">3</span>
+                        Lease Duration (Months)
+                    </label>
+                    <div class="px-2">
+                        <input type="range" id="duration-slider" min="1" max="12" value="3" 
+                            class="w-full h-2 bg-gray-200 dark:bg-neutral-800 rounded-lg appearance-none cursor-pointer accent-mustard">
+                        <div class="flex justify-between mt-4 text-xs font-bold text-gray-400 uppercase tracking-widest">
+                            <span>1 Month</span>
+                            <span class="text-mustard bg-mustard/10 px-3 py-1 rounded-full" id="duration-label">3 Months</span>
+                            <span>12 Months</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:sticky lg:top-24">
+                <div class="bg-[#FBF7EE] dark:bg-darkCard p-8 rounded-[2.5rem] border border-gray-100 dark:border-neutral-800 shadow-xl">
+                    <h4 class="text-xl font-black mb-6 text-gray-900 dark:text-white border-b border-mustard/20 pb-4">Booking Summary</h4>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Base Rate</span>
+                            <span class="font-bold text-gray-900 dark:text-white" id="base-rate-display">₹150/mo</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Plot Multiplier</span>
+                            <span class="font-bold text-gray-900 dark:text-white" id="multiplier-display">x 1.0</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-500">Duration</span>
+                            <span class="font-bold text-gray-900 dark:text-white" id="summary-duration">3 Months</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkBg rounded-2xl p-6 mb-8 text-center">
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Total Amount</p>
+                        <p class="text-4xl font-black text-mustard" id="total-price">₹450</p>
+                    </div>
+
+                    <button class="w-full py-4 bg-mustard text-white rounded-2xl font-black text-lg hover:bg-black transition-all transform active:scale-95 shadow-lg shadow-mustard/20">
+                        Confirm Booking
+                    </button>
+                    
+                    <p class="text-[10px] text-center text-gray-400 mt-4 leading-tight">
+                        * Prices inclusive of basic organic fertilizer and water supply.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Styling for the Active Plot Card */
+    .active-plot {
+        border-color: #D4A017 !important;
+        background-color: rgba(212, 160, 23, 0.05) !important;
+    }
+    .active-plot i {
+        color: #D4A017 !important;
+    }
+    /* Range Slider Custom Styling for Webkit */
+    input[type=range]::-webkit-slider-thumb {
+        border: 4px solid #fff;
+        height: 24px;
+        width: 24px;
+        border-radius: 50%;
+        background: #D4A017;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -8px;
+        box-shadow: 0 4px 10px rgba(212, 160, 23, 0.3);
+    }
+</style>
+
+<script>
+    let currentMultiplier = 1.0;
+    const gardenSelect = document.getElementById('garden-select');
+    const durationSlider = document.getElementById('duration-slider');
+    const durationLabel = document.getElementById('duration-label');
+    const summaryDuration = document.getElementById('summary-duration');
+    const totalPriceDisplay = document.getElementById('total-price');
+    const baseRateDisplay = document.getElementById('base-rate-display');
+    const multiplierDisplay = document.getElementById('multiplier-display');
+
+    function calculateTotal() {
+        const baseRate = parseInt(gardenSelect.value);
+        const months = parseInt(durationSlider.value);
+        
+        const total = baseRate * currentMultiplier * months;
+        
+        // Update UI
+        totalPriceDisplay.innerText = `₹${Math.round(total)}`;
+        baseRateDisplay.innerText = `₹${baseRate}/mo`;
+        multiplierDisplay.innerText = `x ${currentMultiplier.toFixed(1)}`;
+        durationLabel.innerText = `${months} ${months === 1 ? 'Month' : 'Months'}`;
+        summaryDuration.innerText = `${months} ${months === 1 ? 'Month' : 'Months'}`;
+    }
+
+    function selectPlot(element, multiplier) {
+        // Remove active class from all
+        document.querySelectorAll('.plot-card').forEach(card => card.classList.remove('active-plot'));
+        // Add to clicked
+        element.classList.add('active-plot');
+        currentMultiplier = multiplier;
+        calculateTotal();
+    }
+
+    // Event Listeners
+    gardenSelect.addEventListener('change', calculateTotal);
+    durationSlider.addEventListener('input', calculateTotal);
+
+    // Initial Calculation
+    window.addEventListener('DOMContentLoaded', calculateTotal);
+</script>
+
+
+<footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                  <a href="index.html" class="flex items-center group">
+        <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+        </div>
+       <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+    </a>
+                <!-- <h3 class="text-mustard text-2xl font-bold mb-6 uppercase">GreenRoot</h3> -->
+                <p class="text-gray-400 mb-6">Empowering urban citizens to take back their food security and cultivate green spaces together.</p>
+                <div class="flex space-x-4 text-xl">
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-mustard"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="index.html" class="hover:text-white">Home</a></li>
+                    <li><a href="home2.html" class="hover:text-white">Home2</a></li>
+                    <li><a href="book.html" class="hover:text-white">Book Now</a></li>
+                    <li><a href="service.html" class="hover:text-white">Services</a></li>
+                    <li><a href="comingsoon.html" class="hover:text-white">comingsoon</a></li>
+                    
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Support</h4>
+                <ul class="space-y-3 text-gray-400">
+                    <li><a href="about.html" class="hover:text-white">About</a></li>
+                    <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white">Terms</a></li>
+                    <li><a href="404.html" class="hover:text-white">404</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Newsletter</h4>
+                <p class="text-gray-400 mb-4">Get gardening tips and local events sent to your inbox.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Email" class="w-full p-3 bg-gray-800 text-white rounded-l outline-none focus:ring-1 focus:ring-mustard">
+                    <button class="bg-mustard px-4 rounded-r font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+            } else {
+                menu.classList.add('translate-x-full');
+            }
+        }
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            const iconMob = document.getElementById('themeIconMobile');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+                iconMob.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+                iconMob.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        // LTR/RTL Toggle Logic
+        function toggleDirection() {
+            const html = document.getElementById('rootElement');
+            const currentDir = html.getAttribute('dir');
+            const newDir = currentDir === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('direction', newDir);
+        }
+
+        // Load Persisted Settings
+        window.onload = () => {
+            // Theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+                document.getElementById('themeIconMobile').classList.replace('fa-moon', 'fa-sun');
+            }
+            // Direction
+            if (localStorage.getItem('direction')) {
+                document.getElementById('rootElement').setAttribute('dir', localStorage.getItem('direction'));
+            }
+        };
+    </script>
+</body>
+</html>

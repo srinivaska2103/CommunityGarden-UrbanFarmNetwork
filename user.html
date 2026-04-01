@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="main-html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>GrowRoot | Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .sidebar-transition { transition: transform 0.3s ease-in-out; }
+        [dir="rtl"] .sidebar-translate { transform: translateX(100%); }
+        .active-link { background: #D4A017; color: white; }
+    </style>
+</head>
+<body class="bg-[#FBF7EE] dark:bg-darkBg text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans">
+
+    <header class="lg:hidden flex items-center justify-between p-4 bg-white dark:bg-darkCard shadow-sm sticky top-0 z-[60]">
+        <a href="index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-mustard rounded-lg flex items-center justify-center text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+            </div>
+       <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+        </a>
+        <button onclick="toggleSidebar()" class="w-10 h-10 flex items-center justify-center text-mustard bg-mustard/10 rounded-xl">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <div class="flex min-h-screen">
+       <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden transition-opacity"></div>
+
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-darkCard border-r dark:border-neutral-800 
+            transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out lg:static lg:block">
+            
+            <div class="h-full flex flex-col p-6">
+                <div class="hidden lg:flex items-center space-x-3 mb-10">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-mustard rounded-xl flex items-center justify-center text-white shadow-lg">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+                        </div>
+       <span class="text-mustard text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+
+                    </a>
+                </div>
+
+                <nav class="flex-grow space-y-1 overflow-y-auto scrollbar-hide">
+                    <button onclick="switchTab('dashboard', this)" class="tab-link active-link w-full flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold transition-all text-left">
+                        <i class="fas fa-th-large w-5"></i> <span>Dashboard</span>
+                    </button>
+                    <button onclick="switchTab('plots', this)" class="tab-link w-full flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-all text-left">
+                        <i class="fas fa-map-marked-alt w-5"></i> <span>My Plots</span>
+                    </button>
+                    <button onclick="switchTab('tracker', this)" class="tab-link w-full flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-all text-left">
+                        <i class="fas fa-leaf w-5"></i> <span>Plant Tracker</span>
+                    </button>
+                    
+                    <div class="pt-4 pb-2 text-[10px] uppercase font-black text-gray-400 tracking-widest px-4">Insights</div>
+                    
+                    <button onclick="switchTab('impact', this)" class="tab-link w-full flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-all text-left">
+                        <i class="fas fa-chart-line w-5"></i> <span>Impact</span>
+                    </button>
+                </nav>
+                <script>function switchTab(tabId, element) {
+    // 1. Update Sidebar UI
+    document.querySelectorAll('.tab-link').forEach(link => {
+        link.classList.remove('active-link');
+        link.classList.add('text-gray-500');
+    });
+    element.classList.add('active-link');
+    element.classList.remove('text-gray-500');
+
+    // 2. Switch Content Visibility
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.add('hidden');
+    });
+    
+    const activeSection = document.getElementById('section-' + tabId);
+    if (activeSection) {
+        activeSection.classList.remove('hidden');
+        activeSection.classList.add('animate-fade-in');
+    }
+
+    // 3. Auto-close sidebar on mobile after clicking
+    if (window.innerWidth < 1024) {
+        toggleSidebar(); 
+    }
+}</script>
+
+                <div class="mt-auto pt-6 border-t dark:border-neutral-800 space-y-4">
+                    <div class="flex items-center justify-between px-2">
+                        <button onclick="toggleTheme()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-neutral-800 text-gray-500 dark:text-gray-400">
+                            <i id="theme-icon" class="fas fa-moon"></i>
+                        </button>
+                        <button onclick="toggleDirection()" class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-neutral-800 text-gray-500">
+                            <i class="fas fa-arrows-left-right"></i>
+                        </button>
+                        <button class="w-10 h-10 flex items-center justify-center rounded-xl bg-gray-100 dark:bg-neutral-800 text-gray-500">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                    <a href="login.html">
+                        <button class="w-full flex items-center space-x-4 px-4 py-3 rounded-2xl font-bold text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all">
+                        <i class="fas fa-sign-out-alt w-5"></i> <span>Logout</span>
+                    </button>
+                    </a>
+                    
+                </div>
+            </div>
+        </aside>
+
+        <main class="flex-grow p-4 md:p-8 lg:p-10 w-full overflow-x-hidden">
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
+                <div>
+                    <h1 class="text-3xl font-black">Welcome back, <span class="text-mustard">User</span></h1>
+                   
+                </div>
+
+                <div class="flex items-center space-x-3 self-end">
+                    <button onclick="toggleDirection()" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white dark:bg-darkCard shadow-sm border dark:border-neutral-800 hover:border-mustard transition-all">
+                        <i class="fas fa-language"></i>
+                    </button>
+                    <button onclick="toggleTheme()" class="w-12 h-12 flex items-center justify-center rounded-2xl bg-white dark:bg-darkCard shadow-sm border dark:border-neutral-800 hover:border-mustard transition-all">
+                        <i id="theme-icon" class="fas fa-moon"></i>
+                    </button>
+                    <div class="w-12 h-12 rounded-2xl bg-mustard overflow-hidden shadow-lg shadow-mustard/20">
+                        <img src="assets/t1" alt="Profile">
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="bg-white dark:bg-darkCard p-6 rounded-[2rem] shadow-sm border dark:border-neutral-800">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Active Plots</p>
+                    <p class="text-4xl font-black">04</p>
+                    <div class="mt-4 flex items-center text-green-500 text-xs font-bold">
+                        <i class="fas fa-arrow-up mr-1"></i> 1 new plot this month
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-darkCard p-6 rounded-[2rem] shadow-sm border dark:border-neutral-800">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Total Harvest</p>
+                    <p class="text-4xl font-black">24<small class="text-lg">kg</small></p>
+                    <div class="mt-4 flex items-center text-mustard text-xs font-bold">
+                        <i class="fas fa-carrot mr-1"></i> Peak season
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-darkCard p-6 rounded-[2rem] shadow-sm border dark:border-neutral-800">
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Tasks Done</p>
+                    <p class="text-4xl font-black">88<small class="text-lg">%</small></p>
+                    <div class="w-full bg-gray-100 dark:bg-neutral-800 h-1.5 rounded-full mt-4">
+                        <div class="bg-mustard h-full w-[88%] rounded-full"></div>
+                    </div>
+                </div>
+                <div class="bg-mustard p-6 rounded-[2rem] shadow-xl shadow-mustard/20 text-white">
+                    <p class="text-xs font-bold opacity-80 uppercase tracking-widest mb-2">Impact Score</p>
+                    <p class="text-4xl font-black">1.2k</p>
+                    <p class="mt-4 text-xs font-medium">Top 5% of Salem Growers 🏆</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-sm">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-xl font-black">My Plots</h2>
+                            <button class="text-mustard font-bold text-sm">View All</button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-5 border dark:border-neutral-800 rounded-3xl hover:border-mustard transition-all group">
+                                <div class="flex items-center space-x-4 mb-4">
+                                    <div class="w-12 h-12 bg-[#FBF7EE] dark:bg-neutral-800 rounded-xl flex items-center justify-center text-xl">🪴</div>
+                                    <div>
+                                        <h4 class="font-bold">Salem Central 04</h4>
+                                        <p class="text-xs text-gray-500">150 sq. ft • Active</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between text-[10px] font-bold uppercase">
+                                        <span>Growth Progress</span>
+                                        <span class="text-mustard">65%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 dark:bg-neutral-800 h-2 rounded-full overflow-hidden">
+                                        <div class="bg-mustard h-full w-[65%]"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-5 border dark:border-neutral-800 rounded-3xl flex items-center justify-center border-dashed group cursor-pointer hover:bg-gray-50 dark:hover:bg-neutral-800">
+                                <div class="text-center">
+                                    <i class="fas fa-plus text-gray-300 group-hover:text-mustard mb-2"></i>
+                                    <p class="text-xs font-bold text-gray-400">Add New Plot</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-sm">
+                        <h2 class="text-xl font-black mb-6">Plant Tracker</h2>
+                        <div class="relative pl-8 border-l-2 border-dashed border-gray-100 dark:border-neutral-800 space-y-8">
+                            <div class="relative">
+                                <div class="absolute -left-[41px] top-0 w-5 h-5 bg-mustard rounded-full border-4 border-white dark:border-darkCard"></div>
+                                <h4 class="font-bold">Cherry Tomatoes</h4>
+                                <p class="text-sm text-gray-500">Status: <span class="text-green-500 font-bold">Flowering 🌿</span></p>
+                                <p class="text-xs mt-1 italic text-gray-400">"Watered today with nutrient mix"</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute -left-[41px] top-0 w-5 h-5 bg-gray-200 dark:bg-neutral-700 rounded-full border-4 border-white dark:border-darkCard"></div>
+                                <h4 class="font-bold">Organic Spinach</h4>
+                                <p class="text-sm text-gray-500">Status: <span class="text-mustard font-bold">Seedling 🌱</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-sm">
+                        <h2 class="text-xl font-black mb-6">Today's Tasks</h2>
+                        <div class="space-y-4">
+                            <label class="flex items-center p-4 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl cursor-pointer hover:scale-[1.02] transition-all">
+                                <input type="checkbox" checked class="w-5 h-5 accent-mustard rounded">
+                                <div class="ml-4">
+                                    <p class="text-sm font-bold line-through text-gray-400">Water Plot #04</p>
+                                    <p class="text-[10px] text-gray-400">08:00 AM</p>
+                                </div>
+                            </label>
+                            <label class="flex items-center p-4 border dark:border-neutral-800 rounded-2xl cursor-pointer hover:scale-[1.02] transition-all">
+                                <input type="checkbox" class="w-5 h-5 accent-mustard rounded">
+                                <div class="ml-4">
+                                    <p class="text-sm font-bold">Check Soil pH</p>
+                                    <p class="text-[10px] text-gray-400">04:00 PM</p>
+                                </div>
+                            </label>
+                        </div>
+                        <button class="w-full mt-6 py-3 text-sm font-bold text-mustard border-2 border-mustard border-dashed rounded-xl">
+                            + Add Custom Task
+                        </button>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkCard p-8 rounded-[2.5rem] shadow-sm">
+                        <h2 class="text-xl font-black mb-6">Community</h2>
+                        <div class="space-y-6">
+                            <div class="flex space-x-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full" alt="">
+                                <div class="flex-grow">
+                                    <p class="text-xs font-bold">Ananya Iyer <span class="font-normal text-gray-400">shared a post</span></p>
+                                    <p class="text-[11px] mt-1 text-gray-600 dark:text-gray-400">"My first harvest of the year! 🥕 #OrganicSalem"</p>
+                                    <div class="mt-2 flex space-x-3 text-[10px] text-mustard font-bold">
+                                        <span><i class="far fa-heart"></i> 24</span>
+                                        <span><i class="far fa-comment"></i> 08</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+</style>
+
+<div id="section-dashboard" class="tab-content">
+    <h2 class="text-2xl font-black mb-6">General Overview</h2>
+    <p class="text-gray-500">Your garden health is at 94% this week.</p>
+</div>
+
+<div id="section-plots" class="tab-content hidden">
+    <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-black">My Plots</h2>
+        <button class="bg-mustard text-white px-6 py-3 rounded-2xl font-bold shadow-lg shadow-mustard/20 hover:scale-105 transition-all">
+            + New Plot
+        </button>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-darkCard p-6 rounded-[2.5rem] border dark:border-neutral-800 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 bg-mustard/10 rounded-2xl flex items-center justify-center text-2xl">🏡</div>
+                    <div>
+                        <h3 class="font-black text-lg">Backyard Oasis</h3>
+                        <p class="text-xs text-gray-400 font-bold uppercase">Salem West • 200 sq.ft</p>
+                    </div>
+                </div>
+                <span class="px-3 py-1 bg-green-100 text-green-600 text-[10px] font-black rounded-full">ACTIVE</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-6">
+                <div class="p-3 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl text-center">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase">Soil Health</p>
+                    <p class="font-black text-mustard">Excellent</p>
+                </div>
+                <div class="p-3 bg-[#FBF7EE] dark:bg-neutral-800 rounded-2xl text-center">
+                    <p class="text-[10px] font-bold text-gray-400 uppercase">Moisture</p>
+                    <p class="font-black text-blue-500">45%</p>
+                </div>
+            </div>
+            <button class="w-full py-4 bg-gray-100 dark:bg-neutral-800 font-bold rounded-2xl hover:bg-mustard hover:text-white transition-all">Manage Plot</button>
+        </div>
+    </div>
+</div>
+
+<div id="section-tracker" class="tab-content hidden">
+    <h2 class="text-3xl font-black mb-8">Plant Tracker</h2>
+    <div class="bg-white dark:bg-darkCard rounded-[2.5rem] overflow-hidden border dark:border-neutral-800">
+        <table class="w-full text-left">
+            <thead class="bg-gray-50 dark:bg-neutral-800 text-[10px] font-black uppercase text-gray-400">
+                <tr>
+                    <th class="px-6 py-4">Plant</th>
+                    <th class="px-6 py-4">Status</th>
+                    <th class="px-6 py-4">Last Watered</th>
+                    <th class="px-6 py-4">Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y dark:divide-neutral-800">
+                <tr class="hover:bg-gray-50 dark:hover:bg-neutral-800/50 transition-colors">
+                    <td class="px-6 py-4 flex items-center space-x-3">
+                        <span class="text-2xl">🍅</span>
+                        <span class="font-bold">Cherry Tomatoes</span>
+                    </td>
+                    <td class="px-6 py-4"><span class="text-green-500 font-bold text-sm">Growing</span></td>
+                    <td class="px-6 py-4 text-sm text-gray-500">2 Hours ago</td>
+                    <td class="px-6 py-4"><button class="text-mustard font-black text-sm">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="section-impact" class="tab-content hidden">
+    <h2 class="text-3xl font-black mb-8">Impact Insights</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-mustard p-10 rounded-[3rem] text-white shadow-2xl shadow-mustard/30 relative overflow-hidden">
+            <i class="fas fa-leaf absolute -bottom-10 -right-10 text-[12rem] opacity-10 rotate-12"></i>
+            <h4 class="text-xl font-bold mb-2">Personal Green Footprint</h4>
+            <p class="text-5xl font-black mb-6">42.5 <small class="text-lg">kg CO₂</small></p>
+            <p class="text-sm opacity-80 leading-relaxed">By growing your own food, you've saved the equivalent of driving 150km in a petrol car. Great job, Srinivas!</p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="bg-white dark:bg-darkCard p-6 rounded-[2rem] flex items-center justify-between border dark:border-neutral-800">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600"><i class="fas fa-recycle"></i></div>
+                    <span class="font-bold">Waste Composted</span>
+                </div>
+                <span class="text-xl font-black">120kg</span>
+            </div>
+            <div class="bg-white dark:bg-darkCard p-6 rounded-[2rem] flex items-center justify-between border dark:border-neutral-800">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600"><i class="fas fa-tint"></i></div>
+                    <span class="font-bold">Water Saved</span>
+                </div>
+                <span class="text-xl font-black">450L</span>
+            </div>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
+
+    <script>
+        // --- Sidebar Mobile Toggle ---
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+            if (document.dir === 'rtl') sidebar.classList.toggle('translate-x-full');
+        }
+
+        // --- Theme Toggle Logic ---
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.className = 'fas fa-moon';
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.className = 'fas fa-sun';
+            }
+        }
+
+        // --- LTR / RTL Toggle Logic ---
+        function toggleDirection() {
+            const html = document.getElementById('main-html');
+            if (html.dir === 'ltr') {
+                html.dir = 'rtl';
+                localStorage.setItem('dir', 'rtl');
+            } else {
+                html.dir = 'ltr';
+                localStorage.setItem('dir', 'ltr');
+            }
+        }
+
+        // --- On Load: Restore Preferences ---
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            const savedDir = localStorage.getItem('dir');
+            const icon = document.getElementById('theme-icon');
+
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+                icon.className = 'fas fa-sun';
+            }
+            if (savedDir) document.getElementById('main-html').dir = savedDir;
+        }
+    </script>
+</body>
+</html>

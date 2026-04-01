@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" id="rootElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23D4A017' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8'%3E%3C/path%3E%3C/svg%3E">
+    <title>404 - Page Not Found | GreenRoot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        mustard: '#D4A017',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#FBF7EE] dark:bg-darkBg text-gray-900 dark:text-gray-100 min-h-screen flex flex-col transition-all duration-300">
+
+    <nav class="w-full p-4 md:p-6 flex justify-between items-center lg:fixed lg:top-0 lg:left-0 z-50 bg-[#FBF7EE]/80 dark:bg-darkBg/80 backdrop-blur-sm">
+        <a href="index.html" class="flex items-center group">
+            <div class="bg-mustard p-1.5 rounded-lg mr-2 group-hover:rotate-12 transition-transform">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 md:h-6 md:w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+            </div>
+            <span class="text-mustard text-xl md:text-2xl font-bold uppercase tracking-tighter">GreenRoot</span>
+        </a>
+
+        <div class="flex items-center space-x-2">
+            <button onclick="toggleDirection()" class="text-[9px] md:text-xs font-bold px-2 py-1.5 md:px-3 md:py-2 bg-white dark:bg-darkCard rounded-full shadow-sm border dark:border-neutral-800 hover:text-mustard transition-colors">
+                LTR/RTL
+            </button>
+            <button onclick="toggleTheme()" class="p-2 bg-white dark:bg-darkCard rounded-full shadow-sm border dark:border-neutral-800 text-gray-500 hover:text-mustard transition-colors">
+                <i id="themeIcon" class="fas fa-moon text-xs md:text-base"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center px-4 py-10 md:py-20">
+        <div class="text-center w-full max-w-2xl">
+            <div class="relative inline-block mb-4 md:mb-8">
+                <h1 class="text-[80px] sm:text-[120px] md:text-[180px] font-black text-mustard/20 leading-none select-none">404</h1>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <i class="fas fa-seedling text-4xl sm:text-6xl md:text-8xl text-mustard animate-bounce-slow"></i>
+                </div>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-black mb-3">Oops! Plot empty.</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm md:text-lg mb-8 max-w-md mx-auto leading-relaxed px-2">
+                The page you're looking for has withered away. Let's get you back on the right path.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 px-6 sm:px-0">
+                <a href="index.html" class="w-full sm:w-auto px-8 py-3.5 md:px-10 md:py-4 bg-mustard text-white rounded-2xl font-black text-base md:text-lg hover:bg-black transition-all transform active:scale-95 shadow-lg shadow-mustard/20">
+                    Back to Home
+                </a>
+                <a href="contact.html" class="w-full sm:w-auto px-8 py-3.5 md:px-10 md:py-4 border-2 border-mustard text-mustard rounded-2xl font-black text-base md:text-lg hover:bg-mustard hover:text-white transition-all transform active:scale-95">
+                    Report Issue
+                </a>
+            </div>
+
+            <div class="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-gray-200 dark:border-neutral-800">
+                <p class="text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 md:mb-6">Need help?</p>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-6 px-2">
+                    <a href="login.html" class="text-xs md:text-sm font-bold hover:text-mustard">Sign In</a>
+                    <a href="register.html" class="text-xs md:text-sm font-bold hover:text-mustard">Register</a>
+                    <a href="explore.html" class="text-xs md:text-sm font-bold hover:text-mustard">Gardens</a>
+                    <a href="help.html" class="text-xs md:text-sm font-bold hover:text-mustard">Help</a>
+                </div>
+            </div>
+
+            <div class="mt-8 md:mt-12 flex justify-center space-x-6 text-lg md:text-xl text-gray-400">
+                <a href="#" class="hover:text-mustard"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-mustard"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-mustard"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-6 text-center text-gray-400 text-[10px] md:text-xs mt-auto">
+        &copy; 2026 GreenRoot Network.
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            }
+        }
+
+        function toggleDirection() {
+            const html = document.getElementById('rootElement');
+            const newDir = html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr';
+            html.setAttribute('dir', newDir);
+            localStorage.setItem('direction', newDir);
+        }
+
+        window.onload = () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('themeIcon').classList.replace('fa-moon', 'fa-sun');
+            }
+            if (localStorage.getItem('direction')) {
+                document.getElementById('rootElement').setAttribute('dir', localStorage.getItem('direction'));
+            }
+        };
+    </script>
+</body>
+</html>
